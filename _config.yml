@@ -99,6 +99,12 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  dissertations:
+    output: true
+    permalink: /dissertations/:path/
+  seminars:
+    output: true
+    permalink: /seminars/:path/
 
 news_limit: 5
 
@@ -186,6 +192,7 @@ enable_navbar_social:       false  # enables displaying social links in the
 enable_project_categories:  true   # enables categorization of projects into
                                    # multiple categories
 enable_medium_zoom:         true   # enables image zoom feature (as on medium.com)
+show_social_icons:          true
 
 # -----------------------------------------------------------------------------
 # Library versions

@@ -1,7 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
-inline: true
+title: Diploma in Electrical and Computer Engineering at the Aristotle University of Thessaloniki (completed, grade 7.56/10)
+date: 2017-11-17 15:59:00-0400
+inline: false
 ---
 
-A simple inline announcement.
+TODO add description.
