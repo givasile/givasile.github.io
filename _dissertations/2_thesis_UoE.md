@@ -12,14 +12,20 @@ authors:
   - name: Michael Gutmann
     url: "https://michaelgutmann.github.io/"
     affiliations:
-      name: University of Edinburgh 
+      name: University of Edinburgh
+date: 10-10-2020
+citation_url: https://arxiv.org/abs/2011.03977
+
+slug: gkolemis2020extending
+bibliography: edinburgh_thesis.bib
+
 ---
 
-The pdf can be found [here]({{ site.url }}/assets/pdf/edinburgh_thesis.pdf) and the corresponding github repository [here](https://github.com/givasile/edinburgh-thesis).
+The pdf can be found [here]({{ site.url }}/assets/pdf/edinburgh_thesis.pdf), the arXiv link [here](https://arxiv.org/abs/2011.03977) and the corresponding github repository [here](https://github.com/givasile/edinburgh-thesis).
 
 ***
 
-**Abstract**
+**Abstract**<d-cite key="gkolemis2020extending"></d-cite>
 
 Bayesian inference is a principled framework for dealing with uncertainty. The practitioner can
 perform an initial assumption for the physical phenomenon they want to model (prior belief), collect
@@ -40,3 +46,4 @@ it exploits parallel processing for accelerating the inference wherever it is po
 designed to serve extensibility; the user can easily replace specific subparts of the method without
 significant overhead on the development side. Therefore, it can be used by a researcher for further
 experimentation.
+
