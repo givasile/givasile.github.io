@@ -14,7 +14,15 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am broadly interested in applying machine learning techniques for solving a wide range of problems.
+I am broadly interested in applying machine learning for solving a wide range of problems.
 
-I completed my diploma in electrical and computer engineering at the Aristotle University of Thessaloniki in November 2017. Throughout my thesis, I mainly focused on machine learning with applications in computer vision. Afterwards, I worked as a research associate in the EU-funded project BigO, as member of the MUG group. At September of 2020, I completed my MSc in Operational Research with Data Science at the University of Edinburgh, with distinction. My dissertation there concentrated in the fields of Probabilistic Machine Learning and specifically likelihood-free inference techniques.
+◆ Currently working as Research Assistant at [ATHENA Research and Innovation Center](https://www.athena-innovation.gr/)
+
+◍ Main research interests include (a) simulator-based (likelihood-free) inference models and (b) Deep Learning mainly for solving image problems 
+
+◉ I actively contribute to open-source project [ELFI](https://github.com/elfi-dev/elfi), where I have implemented the [ROMC]({{ site.url }}/dissertations/2_thesis_UoE/) method
+
+✸ I completed my MSc in Data Science at 2020 (78/100, Distinction), University of Edinburgh
+
+❢ For a more detailed view of my skillset take a look at my [CV]({{site.url}}/assets/pdf/cv_english.pdf)
 
