@@ -1,3 +1,21 @@
+# useful commands
+
+Integrate updates from alshedivat/al-folio.git master branch
+
+* `git fetch upstream master`
+* switch to source branch and `git rebase upstream/master` - integrates changes
+* `git push --force origin source` - overwrite changes on origin/source branch
+* `./bin/deploy --user` - deletes old master branch, builds site, creates new masterand pushes with --force
+
+-------------------------------------------------------------------------------
+
+Change content of the site
+
+* Integrate updates from alshedivat/al-folio.git master branch
+* add content on source (check changes localy with `bundle exec jekyll serve` or using Dockerfile)
+* commit changes
+* `./bin/deploy --user`
+
 # al-folio
 
 [![build status](https://travis-ci.org/alshedivat/al-folio.svg?branch=master)](https://travis-ci.org/alshedivat/al-folio)
