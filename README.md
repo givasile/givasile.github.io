@@ -1,4 +1,4 @@
-# useful commands
+# Useful commands
 
 Integrate updates from alshedivat/al-folio.git master branch
 

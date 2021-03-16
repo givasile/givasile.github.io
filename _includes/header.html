@@ -22,15 +22,18 @@
       </button>
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
+					
           <!-- About -->
           <li class="nav-item {% if page.title == 'about' %}active{% endif %}">
             <a class="nav-link" href="{{ '/' | relative_url }}">
-              about
+              About
               {% if page.title == "about" %}
                 <span class="sr-only">(current)</span>
               {% endif %}
             </a>
           </li>
+
+					<!-- <\!-- generates site blog -\-> -->
           <!-- {% if site.blog_name %} -->
           <!-- <\!-- Blog -\-> -->
           <!-- <li class="nav-item {% if page.url contains 'blog' %}active{% endif %}"> -->
@@ -41,41 +44,55 @@
           <!--     {% endif %} -->
           <!--   </a> -->
           <!-- </li> -->
-          <!-- {% endif %} -->
-          <!-- <\!-- Other pages -\-> -->
-          <!-- {% assign sorted_pages = site.pages | sort: "title" %} -->
-          <!-- {% for p in sorted_pages %} -->
-          <!-- {% if p.nav and p.autogen == nil %} -->
-          <!-- <li class="nav-item {% if page.title == p.title %}active{% endif %}"> -->
-          <!--     <a class="nav-link" href="{{ p.url | relative_url }}"> -->
-          <!--       {{ p.title }} -->
-          <!--       {% if page.title == p.title %} -->
-          <!--       <span class="sr-only">(current)</span> -->
-          <!--       {% endif %} -->
-          <!--     </a> -->
+					<!-- {% endif %} -->
+
+					<!-- generates Notes -->
+          <!-- {% if site.notes_name %} -->
+          <!-- <\!-- Blog -\-> -->
+          <!-- <li class="nav-item {% if page.url contains 'notes' %}active{% endif %}"> -->
+          <!--   <a class="nav-link" href="{{ '/notes/' | relative_url }}"> -->
+          <!--     Notes -->
+          <!--     {% if page.title == "notes" %} -->
+          <!--     <span class="sr-only">(current)</span> -->
+          <!--     {% endif %} -->
+          <!--   </a> -->
           <!-- </li> -->
-          <!-- {% endif %} -->
-          <!-- {% endfor %} -->
-
-          <!-- Dissertations -->
-          <li class="nav-item {% if page.url contains 'dissertations' %}active{% endif %}">
-            <a class="nav-link" href="{{ '/dissertations/' | relative_url }}">
-              dissertations
-              {% if page.title == "dissertations" %}
-              <span class="sr-only">(current)</span>
-              {% endif %}
-            </a>
+					<!-- {% endif %} -->
+						
+          <!-- autogenerates all other pages -->
+          {% assign sorted_pages = site.pages | sort: "title" %}
+          {% for p in sorted_pages %}
+          {% if p.nav and p.autogen == nil %}
+          <li class="nav-item {% if page.title == p.title %}active{% endif %}">
+              <a class="nav-link" href="{{ p.url | relative_url }}">
+                {{ p.title }}
+                {% if page.title == p.title %}
+                <span class="sr-only">(current)</span>
+                {% endif %}
+              </a>
           </li>
+          {% endif %}
+          {% endfor %}
 
-          <!-- Online courses -->
-          <li class="nav-item {% if page.url contains 'seminars' %}active{% endif %}">
-            <a class="nav-link" href="{{ '/seminars/' | relative_url }}">
-              online courses
-              {% if page.title == "seminars" %}
-              <span class="sr-only">(current)</span>
-              {% endif %}
-            </a>
-          </li>
+          <!-- <\!-- Dissertations -\-> -->
+          <!-- <li class="nav-item {% if page.url contains 'dissertations' %}active{% endif %}"> -->
+          <!--   <a class="nav-link" href="{{ '/dissertations/' | relative_url }}"> -->
+          <!--     Dissertations -->
+          <!--     {% if page.title == "dissertations" %} -->
+          <!--     <span class="sr-only">(current)</span> -->
+          <!--     {% endif %} -->
+          <!--   </a> -->
+          <!-- </li> -->
+
+          <!-- <\!-- Online courses -\-> -->
+          <!-- <li class="nav-item {% if page.url contains 'courses' %}active{% endif %}"> -->
+          <!--   <a class="nav-link" href="{{ '/courses/' | relative_url }}"> -->
+          <!--     Courses -->
+          <!--     {% if page.title == "seminars" %} -->
+          <!--     <span class="sr-only">(current)</span> -->
+          <!--     {% endif %} -->
+          <!--   </a> -->
+          <!-- </li> -->
           
           <!-- CV -->
           <li class="nav-item">
