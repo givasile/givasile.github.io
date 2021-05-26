@@ -17,7 +17,7 @@ footer_text: >
 icon: 🔥 # the emoji used as the favicon
 url:  # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
-last_updated: false # set to true if you want to display last updated in the footer
+last_updated: true # set to true if you want to display last updated in the footer
 impressum_path:  # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 
 # -----------------------------------------------------------------------------
@@ -75,8 +75,8 @@ panelbear_analytics: XXXXXXXXX # panelbear analytics site ID
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio  # your blog must have a name for it to show up in the nav bar
-blog_description: a simple whitespace theme for academics
+blog_name: Personal Blog  # your blog must have a name for it to show up in the nav bar
+blog_description: for posting Machine Learning related articles
 # permalink: /blog/:year/:title/
 
 # Pagination
@@ -85,22 +85,6 @@ pagination:
 
 # Comments
 disqus_shortname: givasile # put your disqus shortname
-
-# -----------------------------------------------------------------------------
-# Notes
-# -----------------------------------------------------------------------------
-
-notes_name: Notes
-notes_description: Random notes I have kept throughout the years
-permalink: /notes/:year/:title/
-
-# Pagination
-pagination:
-  enabled: true
-
-# Comments
-disqus_shortname: givasile # put your disqus shortname
-
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -120,7 +104,7 @@ collections:
     permalink: /dissertations/:path/
   notes:
     output: true
-    permalink: /notes/:path/
+    permalink: /:collection/:year/:title # /<collection=notes>/<:title=part of the file name without the date>
 
 news_limit: 5
 

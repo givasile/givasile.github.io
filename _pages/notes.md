@@ -4,9 +4,9 @@ permalink: /notes/
 ---
 
 <ul>
-  {% for post in site.notes %}
+  {% for note in site.notes %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ note.url }}">{{ note.title }}</a>
     </li>
   {% endfor %}
 </ul>

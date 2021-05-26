@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: Shell vs Terminal vs Login
-description: A fast 
+description: A quick intro to differences between them 
 date: 2021-03-10
 
 authors:
