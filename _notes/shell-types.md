@@ -39,7 +39,7 @@ We interact with the system as a specific user. This means that after a system b
 * <d-code language="python">100-999</d-code> ids of non-human users (services etc.)
 * <d-code language="python">1000-...</d-code> ids of human users
 
-We can check the ids of all users (human and non-human) of the system with <d-code language="bash">cat /etc/passwd</d-code>
+We can check the ids of all users (human and non-human) of the system with [`cat /etc/passwd`](https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/)
 
 #### Interactive vs non-interactive shell 
 
