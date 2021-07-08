@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +10,7 @@
   Vasilis  Gkolemis
 
 
-  | blog
+  | Robust Optimisation Monte Carlo for Likelihood-free Inference
 
 </title>
 <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
@@ -37,7 +36,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/dissertations/2_thesis_UoE/">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -67,7 +66,58 @@
 <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
 
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    <script src="/assets/js/distillpub/overrides.js"></script>
+    
   </head>
+
+  <d-front-matter>
+    <script async type="text/json">{
+      "title": "Robust Optimisation Monte Carlo for Likelihood-free Inference",
+      "description": "MSc Operational Research with Data Science, University of Edinburgh (2020)",
+      "published": "October 10, 2020",
+      "authors": [
+        
+        {
+          "author": "Vasileios Gkolemis",
+          "authorURL": "https://givasile.github.io/",
+          "affiliations": [
+            {
+              "name": "University of Edinburgh",
+              "url": ""
+            }
+          ]
+        },
+        
+        {
+          "author": "Michael Gutmann",
+          "authorURL": "https://michaelgutmann.github.io/",
+          "affiliations": [
+            {
+              "name": "University of Edinburgh",
+              "url": ""
+            }
+          ]
+        }
+        
+      ],
+      "katex": {
+        "delimiters": [
+          {
+            "left": "$",
+            "right": "$",
+            "display": false
+          },
+          {
+            "left": "$$",
+            "right": "$$",
+            "display": true
+          }
+        ]
+      }
+    }</script>
+  </d-front-matter>
 
   <body class="fixed-top-nav ">
 
@@ -104,11 +154,9 @@
 					<!-- <\!-- generates site blog -\-> -->
           <!--  -->
           <!-- <\!-- Blog -\-> -->
-          <!-- <li class="nav-item active"> -->
+          <!-- <li class="nav-item "> -->
           <!--   <a class="nav-link" href="/blog/"> -->
           <!--     blog -->
-          <!--      -->
-          <!--     <span class="sr-only">(current)</span> -->
           <!--      -->
           <!--   </a> -->
           <!-- </li> -->
@@ -118,8 +166,6 @@
           <!--  -->
 						
           <!-- autogenerates all other pages -->
-          
-          
           
           
           
@@ -152,7 +198,7 @@
           
 
           <!-- <\!-- Dissertations -\-> -->
-          <!-- <li class="nav-item "> -->
+          <!-- <li class="nav-item active"> -->
           <!--   <a class="nav-link" href="/dissertations/"> -->
           <!--     Dissertations -->
           <!--      -->
@@ -193,35 +239,49 @@
 
     <!-- Content -->
 
-    <div class="container mt-5">
-      <div class="post">
+    <div class="post distill">
 
-  <div class="header-bar">
-    <h1>Personal Blog</h1>
-    <h2>for posting Machine Learning related articles</h2>
-  </div>
+      <d-title>
+        <h1>Robust Optimisation Monte Carlo for Likelihood-free Inference</h1>
+        <p>MSc Operational Research with Data Science, University of Edinburgh (2020)</p>
+      </d-title>
+
+      <d-byline></d-byline>
+
+      <d-article>
+        <p>The pdf can be found <a href="/assets/pdf/edinburgh_thesis.pdf">here</a>, the arXiv link <a href="https://arxiv.org/abs/2011.03977">here</a> and the corresponding github repository <a href="https://github.com/givasile/edinburgh-thesis">here</a>.</p>
+
+<hr />
+
+<p><strong>Abstract</strong><d-cite key="gkolemis2020extending"></d-cite></p>
+
+<p>Bayesian inference is a principled framework for dealing with uncertainty. The practitioner can
+perform an initial assumption for the physical phenomenon they want to model (prior belief), collect
+some data and then adjust the initial assumption in the light of the new evidence (posterior belief).
+Approximate Bayesian Computation (ABC) methods, also known as likelihood-free inference tech-
+niques, are a class of models used for performing inference when the likelihood is intractable. The
+unique requirement of these models is a black-box sampling machine. Due to the modelling-freedom
+they provide these approaches are particularly captivating.
+Robust Optimisation Monte Carlo (ROMC) is one of the most recent techniques of the specific
+domain. It approximates the posterior distribution by solving independent optimisation problems.
+This dissertation focuses on the implementation of the ROMC method in the software package ”Engine
+for Likelihood-Free Inference” (ELFI). In the first chapters, we provide the mathematical formulation
+and the algorithmic description of the ROMC approach. In the following chapters, we describe our
+implementation; (a) we present all the functionalities provided to the user and (b) we demonstrate
+how to perform inference on some real examples. Our implementation provides a robust and efficient
+solution to a practitioner who wants to perform inference on a simulator-based model. Furthermore,
+it exploits parallel processing for accelerating the inference wherever it is possible. Finally, it has been
+designed to serve extensibility; the user can easily replace specific subparts of the method without
+significant overhead on the development side. Therefore, it can be used by a researcher for further
+experimentation.</p>
 
 
-  <ul class="post-list">
-    
-      <li>
-        <h3><a class="post-title" href="/2020/09/28/twitter.html">a post with twitter</a></h3>
-        <p class="post-meta">September 28, 2020</p>
-        <p>an example of a blog post with twitter</p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/2015/05/15/images.html">a post with images</a></h3>
-        <p class="post-meta">May 15, 2015</p>
-        <p>this is what included images could look like</p>
-      </li>
-    
-  </ul>
+      </d-article>
 
-  
-
-
-</div>
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
 
     </div>
 
@@ -244,33 +304,7 @@
 
   </body>
 
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-<!-- Enable Tooltips -->
-<script type="text/javascript">
-$(function () {$('[data-toggle="tooltip"]').tooltip()})
-</script>
-
-
-
-<!-- Medium Zoom JS -->
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
-<script src="/assets/js/zoom.js"></script>
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
-
+  <d-bibliography src="/assets/bibliography/edinburgh_thesis.bib">
+  </d-bibliography>
 
 </html>

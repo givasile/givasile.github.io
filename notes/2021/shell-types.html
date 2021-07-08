@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +10,7 @@
   Vasilis  Gkolemis
 
 
-  | blog
+  | Shell vs Terminal vs Login
 
 </title>
 <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
@@ -37,7 +36,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/notes/2021/shell-types">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -67,7 +66,64 @@
 <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
 
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    <script src="/assets/js/distillpub/overrides.js"></script>
+    
+    <style type="text/css">
+      .fake-img {
+  background: #bbb;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+} .fake-img p {
+  font-family: monospace;
+  color: white;
+  text-align: left;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+    </style>
+    
   </head>
+
+  <d-front-matter>
+    <script async type="text/json">{
+      "title": "Shell vs Terminal vs Login",
+      "description": "A quick intro to differences between them",
+      "published": "March 10, 2021",
+      "authors": [
+        
+        {
+          "author": "givasile",
+          "authorURL": "https:givasile.github.io",
+          "affiliations": [
+            {
+              "name": "ATHENA Research Center",
+              "url": ""
+            }
+          ]
+        }
+        
+      ],
+      "katex": {
+        "delimiters": [
+          {
+            "left": "$",
+            "right": "$",
+            "display": false
+          },
+          {
+            "left": "$$",
+            "right": "$$",
+            "display": true
+          }
+        ]
+      }
+    }</script>
+  </d-front-matter>
 
   <body class="fixed-top-nav ">
 
@@ -104,11 +160,9 @@
 					<!-- <\!-- generates site blog -\-> -->
           <!--  -->
           <!-- <\!-- Blog -\-> -->
-          <!-- <li class="nav-item active"> -->
+          <!-- <li class="nav-item "> -->
           <!--   <a class="nav-link" href="/blog/"> -->
           <!--     blog -->
-          <!--      -->
-          <!--     <span class="sr-only">(current)</span> -->
           <!--      -->
           <!--   </a> -->
           <!-- </li> -->
@@ -118,8 +172,6 @@
           <!--  -->
 						
           <!-- autogenerates all other pages -->
-          
-          
           
           
           
@@ -193,35 +245,93 @@
 
     <!-- Content -->
 
-    <div class="container mt-5">
-      <div class="post">
+    <div class="post distill">
 
-  <div class="header-bar">
-    <h1>Personal Blog</h1>
-    <h2>for posting Machine Learning related articles</h2>
-  </div>
+      <d-title>
+        <h1>Shell vs Terminal vs Login</h1>
+        <p>A quick intro to differences between them</p>
+      </d-title>
 
+      <d-byline></d-byline>
 
-  <ul class="post-list">
-    
-      <li>
-        <h3><a class="post-title" href="/2020/09/28/twitter.html">a post with twitter</a></h3>
-        <p class="post-meta">September 28, 2020</p>
-        <p>an example of a blog post with twitter</p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/2015/05/15/images.html">a post with images</a></h3>
-        <p class="post-meta">May 15, 2015</p>
-        <p>this is what included images could look like</p>
-      </li>
-    
-  </ul>
+      <d-article>
+        <h4 id="what-happens-when-a-user-logs-in">What happens when a user logs in</h4>
 
-  
+<p>We interact with the system as a specific user. This means that after a system boots, it waits for users to connect with it, with the log-in process. The login process sets for the user some environmental variables like <d-code language="bash">$SHELL, $USER, $GROUPS</d-code> and creates a login shell. In ubuntu systems the convention about user and group ids is the following:</p>
 
+<ul>
+  <li>
+    <d-code language="python">0</d-code>
+    <p>id of the root user</p>
+  </li>
+  <li>
+    <d-code language="python">1-99</d-code>
+    <p>legacy ids, not used so much any more</p>
+  </li>
+  <li>
+    <d-code language="python">100-999</d-code>
+    <p>ids of non-human users (services etc.)</p>
+  </li>
+  <li>
+    <d-code language="python">1000-...</d-code>
+    <p>ids of human users</p>
+  </li>
+</ul>
 
+<p>We can check the ids of all users (human and non-human) of the system with <a href="https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/"><code class="language-plaintext highlighter-rouge">cat /etc/passwd</code></a></p>
+
+<h4 id="interactive-vs-non-interactive-shell">Interactive vs non-interactive shell</h4>
+
+<p>We interact with the shell, through an interactive or a non-interactive session. At an interactive session we attach the session to a terminal (tty,pty) and the shell waits for commands to enter a REPL loop. At a non interactive session the shell executes a banch of commands at once. For example <d-code language="bash">sh script.sh</d-code></p>
+
+<h4 id="login-vs-non-login-shell">Login vs non-login shell</h4>
+
+<p>A login-shell is typically the top-level shell in the tree of processes invoked by the init processes <d-footnote>the first process after system start</d-footnote>, for interacting with the kernel. Normally the login shell is created automatically when we enter the system (after login). If we are using a desktop linux version (with X) enabled, the login shell is created at the background. If we login without X system, we will automatically enter a login shell. All shells created afterwards will be sub-shells of this initial shell and they inherit the properties of the parent (login) shell, such as the environmental variables.</p>
+
+<p>In the following cases we can enforce the creation of a login shell<d-footnote>there is no limitation in the login shells can coexist</d-footnote></p>
+
+<ul>
+  <li>access a computer remotely via ssh (if sshd is installed, try <d-code language="shell">ssh [username]@localhost</d-code>)</li>
+  <li>
+    <d-code language="bash">bash -l</d-code>
+    <p>simulates (enforces) login shell</p>
+  </li>
+  <li>
+    <d-code language="bash">sudo -i</d-code>
+    <p>simulates login shell for a root</p>
+  </li>
+  <li>
+    <d-code language="bash">sudo -u [username] -i</d-code>
+    <p>simulates login shell for non-root user</p>
+  </li>
+  <li>
+    <d-code language="bash">sudo login</d-code>
+    <p>switching user</p>
+  </li>
+  <li>
+    <d-code language="bash">xterm -ls</d-code>
+    <p>simulates login shell from x environment</p>
+  </li>
+</ul>
+
+<p>In all other cases, we interact with the shell through a non-login shell.</p>
+
+<p>We can determine whether we use a login or non-login shell by typing <d-code language="bash">echo $0</d-code> in the terminal. If the output starts with an - (e.g. -bash) then it is a login shell, otherwise non-login.</p>
+
+<h4 id="possible-states-of-a-shell-session">Possible states of a shell session</h4>
+
+<p>Therefore a shell session can be in four possible states; interactive/non-interactive and login/non-login. Depending on the session state, a different shell initialization process is followed according to the following diagram.</p>
+
+<div class="fake-img l-body">
+  <img class="img-fluid rounded z-depth-1" src="/assets/img/posts/Screenshot.png" />
 </div>
+
+      </d-article>
+
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
 
     </div>
 
@@ -244,33 +354,7 @@
 
   </body>
 
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-<!-- Enable Tooltips -->
-<script type="text/javascript">
-$(function () {$('[data-toggle="tooltip"]').tooltip()})
-</script>
-
-
-
-<!-- Medium Zoom JS -->
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
-<script src="/assets/js/zoom.js"></script>
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
-
+  <d-bibliography src="/assets/bibliography/">
+  </d-bibliography>
 
 </html>

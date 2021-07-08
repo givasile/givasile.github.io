@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +10,7 @@
   Vasilis  Gkolemis
 
 
-  | blog
+  | Jekyll blog
 
 </title>
 <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
@@ -37,7 +36,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/notes/2021/jekyll-blog">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -67,7 +66,47 @@
 <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
 
+    <script src="/assets/js/distillpub/template.v2.js"></script>
+    <script src="/assets/js/distillpub/transforms.v2.js"></script>
+    <script src="/assets/js/distillpub/overrides.js"></script>
+    
   </head>
+
+  <d-front-matter>
+    <script async type="text/json">{
+      "title": "Jekyll blog",
+      "description": "Instructions for building a jekyll blog",
+      "published": "May 25, 2021",
+      "authors": [
+        
+        {
+          "author": "ATHENA Research Center",
+          "authorURL": "https:givasile.github.io",
+          "affiliations": [
+            {
+              "name": "",
+              "url": ""
+            }
+          ]
+        }
+        
+      ],
+      "katex": {
+        "delimiters": [
+          {
+            "left": "$",
+            "right": "$",
+            "display": false
+          },
+          {
+            "left": "$$",
+            "right": "$$",
+            "display": true
+          }
+        ]
+      }
+    }</script>
+  </d-front-matter>
 
   <body class="fixed-top-nav ">
 
@@ -108,8 +147,6 @@
           <!--   <a class="nav-link" href="/blog/"> -->
           <!--     blog -->
           <!--      -->
-          <!--     <span class="sr-only">(current)</span> -->
-          <!--      -->
           <!--   </a> -->
           <!-- </li> -->
 					<!--  -->
@@ -118,8 +155,6 @@
           <!--  -->
 						
           <!-- autogenerates all other pages -->
-          
-          
           
           
           
@@ -193,35 +228,62 @@
 
     <!-- Content -->
 
-    <div class="container mt-5">
-      <div class="post">
+    <div class="post distill">
 
-  <div class="header-bar">
-    <h1>Personal Blog</h1>
-    <h2>for posting Machine Learning related articles</h2>
-  </div>
+      <d-title>
+        <h1>Jekyll blog</h1>
+        <p>Instructions for building a jekyll blog</p>
+      </d-title>
+
+      <d-byline></d-byline>
+
+      <d-article>
+        <h4 id="general-instructions">General instructions</h4>
+
+<ul>
+  <li>posts is a built-in collection, that exists even if <code class="language-plaintext highlighter-rouge">_posts</code> directory doesn’t exist (in this case it is an empty collection)</li>
+  <li>posts must be named as <code class="language-plaintext highlighter-rouge">&lt;YEAR-MONTH-DAY-title.markup&gt;</code> and stored inside the <code class="language-plaintext highlighter-rouge">_path</code> directory</li>
+</ul>
+
+<h4 id="permalinks"><a href="https://jekyllrb.com/docs/permalinks/">Permalinks</a></h4>
+
+<p>For defining permalinks we use placeholders e.g <code class="language-plaintext highlighter-rouge">/:day/:month/:title</code>, if some info is missing the placeholder is ignored. For example if a document doesn’t have date it will be stored in <code class="language-plaintext highlighter-rouge">/:title</code>.</p>
+
+<p>It is possible to define a permalink at:</p>
+
+<ul>
+  <li>document level - at the front-matter. This approach defines the link completely staticly.</li>
+  <li>collection level - at <code class="language-plaintext highlighter-rouge">_config.md</code>, in the collection’s definition. The available placeholders are:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">:collection</code> - the name of the collection</li>
+      <li><code class="language-plaintext highlighter-rouge">:path</code> - path to the parent dir of the file</li>
+      <li><code class="language-plaintext highlighter-rouge">:name</code>: name of the file</li>
+      <li><code class="language-plaintext highlighter-rouge">:title</code>: title of the file as defined in the front-matter (doesn’t work in the tests I did, instead it <code class="language-plaintext highlighter-rouge">:name</code> is used),</li>
+      <li><code class="language-plaintext highlighter-rouge">:output_ext</code> extension of the file</li>
+    </ul>
+  </li>
+  <li>global level, at <code class="language-plaintext highlighter-rouge">_config.md</code>. The available placeholders are:
+    <ul>
+      <li>some related to the date</li>
+      <li><code class="language-plaintext highlighter-rouge">:categories</code> (defined by the directories struvture)</li>
+      <li><code class="language-plaintext highlighter-rouge">:title</code> (based on the name of the document)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="how-to-roadmap">How-To roadmap</h4>
+
+<ul>
+  <li>For adding a note: store an <code class="language-plaintext highlighter-rouge">&lt;title&gt;.md</code> file in the directory <code class="language-plaintext highlighter-rouge">_notes/</code></li>
+</ul>
 
 
-  <ul class="post-list">
-    
-      <li>
-        <h3><a class="post-title" href="/2020/09/28/twitter.html">a post with twitter</a></h3>
-        <p class="post-meta">September 28, 2020</p>
-        <p>an example of a blog post with twitter</p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/2015/05/15/images.html">a post with images</a></h3>
-        <p class="post-meta">May 15, 2015</p>
-        <p>this is what included images could look like</p>
-      </li>
-    
-  </ul>
+      </d-article>
 
-  
-
-
-</div>
+      <d-appendix>
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+      </d-appendix>
 
     </div>
 
@@ -244,33 +306,7 @@
 
   </body>
 
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-<!-- Enable Tooltips -->
-<script type="text/javascript">
-$(function () {$('[data-toggle="tooltip"]').tooltip()})
-</script>
-
-
-
-<!-- Medium Zoom JS -->
-<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
-<script src="/assets/js/zoom.js"></script>
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
-
+  <d-bibliography src="/assets/bibliography/">
+  </d-bibliography>
 
 </html>

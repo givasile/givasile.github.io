@@ -11,8 +11,6 @@
   Vasilis  Gkolemis
 
 
-  | blog
-
 </title>
 <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 ">
@@ -37,7 +35,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
 
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -79,9 +77,27 @@
     <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
     <div class="container">
       
-      <a class="navbar-brand title font-weight-lighter" href="/">
-       <span class="font-weight-bold">Vasilis</span>   Gkolemis
-      </a>
+        <!-- Social Icons -->
+        <div class="navbar-brand social">
+          <a href="mailto:%76%61%73%69%6C%69%73.%67%6B%6F%6C%65%6D%69%73@%67%6D%61%69%6C.%63%6F%6D"><i class="fas fa-envelope"></i></a>
+<a href="https://orcid.org/0000-0002-2636-0245" target="_blank" title="ORCID"><i class="ai ai-orcid"></i></a>
+
+
+<a href="https://www.researchgate.net/profile/Vasileios_Gkolemis/" target="_blank" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
+<a href="https://github.com/givasile" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+<a href="https://www.linkedin.com/in/givasile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://twitter.com/givasile1" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+
+
+
+
+
+
+
+<a href="https://gitlab.com/givasile" target="_blank" title="GitLab"><i class="fab fa-gitlab"></i></a>
+
+
+        </div>
       
       <!-- Navbar Toggle -->
       <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,9 +110,11 @@
         <ul class="navbar-nav ml-auto flex-nowrap">
 					
           <!-- About -->
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="/">
               About
+              
+                <span class="sr-only">(current)</span>
               
             </a>
           </li>
@@ -104,11 +122,9 @@
 					<!-- <\!-- generates site blog -\-> -->
           <!--  -->
           <!-- <\!-- Blog -\-> -->
-          <!-- <li class="nav-item active"> -->
+          <!-- <li class="nav-item "> -->
           <!--   <a class="nav-link" href="/blog/"> -->
           <!--     blog -->
-          <!--      -->
-          <!--     <span class="sr-only">(current)</span> -->
           <!--      -->
           <!--   </a> -->
           <!-- </li> -->
@@ -118,8 +134,6 @@
           <!--  -->
 						
           <!-- autogenerates all other pages -->
-          
-          
           
           
           
@@ -196,30 +210,110 @@
     <div class="container mt-5">
       <div class="post">
 
-  <div class="header-bar">
-    <h1>Personal Blog</h1>
-    <h2>for posting Machine Learning related articles</h2>
-  </div>
+  <header class="post-header">
+    <h1 class="post-title">
+     <span class="font-weight-bold">Vasilis</span>  Gkolemis
+    </h1>
+     <p class="desc"></p>
+  </header>
+
+  <article>
+    
+    <div class="profile float-right">
+      
+        <img class="img-fluid z-depth-1 rounded" src="/assets/img/prof_pic.jpg">
+      
+      
+    </div>
+    
+
+    <div class="clearfix">
+      <p>I am broadly interested in applying machine learning for solving a wide range of problems.</p>
+
+<p>◆ Currently working as Research Assistant at <a href="https://www.athena-innovation.gr/">ATHENA Research and Innovation Center</a></p>
+
+<p>◍ Main research interests include (a) simulator-based (likelihood-free) inference models and (b) Deep Learning mainly for solving image problems</p>
+
+<p>◉ I actively contribute to open-source project <a href="https://github.com/elfi-dev/elfi">ELFI</a>, where I have implemented the <a href="/dissertations/2_thesis_UoE/">ROMC</a> method</p>
+
+<p>✸ I completed my MSc in Data Science at 2020 (78/100, Distinction), University of Edinburgh</p>
+
+<p>❢ For a more detailed view of my skillset take a look at my <a href="/assets/pdf/cv_english.pdf">CV</a></p>
 
 
-  <ul class="post-list">
-    
-      <li>
-        <h3><a class="post-title" href="/2020/09/28/twitter.html">a post with twitter</a></h3>
-        <p class="post-meta">September 28, 2020</p>
-        <p>an example of a blog post with twitter</p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/2015/05/15/images.html">a post with images</a></h3>
-        <p class="post-meta">May 15, 2015</p>
-        <p>this is what included images could look like</p>
-      </li>
-    
-  </ul>
+    </div>
 
+    
+      <div class="news">
+  <h2>news</h2>
   
+    <div class="table-responsive">
+      <table class="table table-sm table-borderless">
+      
+      
+        <tr>
+          <th scope="row">Oct 1, 2020</th>
+          <td>
+            
+              <a class="news-title" href="/news/announcement_3/">MSc Operational Research with Data Science at the University of Edinburgh (completed with Distinction)</a>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row">Feb 1, 2018</th>
+          <td>
+            
+              <a class="news-title" href="/news/announcement_2/">Started working as Research Assistant at the Mulitmedia Understanding Group (MUG)</a>
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th scope="row">Nov 17, 2017</th>
+          <td>
+            
+              <a class="news-title" href="/news/announcement_1/">Diploma in Electrical and Computer Engineering at the Aristotle University of Thessaloniki (completed, grade 7.56/10)</a>
+            
+          </td>
+        </tr>
+      
+      </table>
+    </div>
+  
+</div>
 
+    
+
+    
+
+    
+    <div class="social">
+      <div class="contact-icons">
+        <a href="mailto:%76%61%73%69%6C%69%73.%67%6B%6F%6C%65%6D%69%73@%67%6D%61%69%6C.%63%6F%6D"><i class="fas fa-envelope"></i></a>
+<a href="https://orcid.org/0000-0002-2636-0245" target="_blank" title="ORCID"><i class="ai ai-orcid"></i></a>
+
+
+<a href="https://www.researchgate.net/profile/Vasileios_Gkolemis/" target="_blank" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
+<a href="https://github.com/givasile" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+<a href="https://www.linkedin.com/in/givasile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://twitter.com/givasile1" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+
+
+
+
+
+
+
+<a href="https://gitlab.com/givasile" target="_blank" title="GitLab"><i class="fab fa-gitlab"></i></a>
+
+
+      </div>
+      <div class="contact-note">You can also find me at ntipakos@gmail.com
+</div>
+    </div>
+    
+  </article>
 
 </div>
 
