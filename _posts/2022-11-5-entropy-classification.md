@@ -5,6 +5,7 @@ description: Discuss how categorical entropy can be used to quantify the aleator
 date: 2022-11-05
 tags: IPML
 category: IPML
+comments: true
 
 authors:
   - name: Vasilis Gkolemis
@@ -130,40 +131,43 @@ them.
 ## Entropy
 
 If we draw a sample $x_i$ from a discrete random variable $X$, the
-value $-\log p(x_i)$ quantifies our *level of surprise* or
-*information gain*. The level of surprise means how unexpected we
+value $-\log p(x_i)$ quantifies our **level of surprise** or
+**information gain**. The level of surprise means how unexpected we
 considered the outcome. The information gain describes how much we
 learned after observing $x_i$. Imagine papers with written rules in a
 bowl. Player A draws a paper, reads the rules and designs how to
 offend. The other players design their defense without knowing what
-the paper writes. They only knew that the bowl has $n_1$ papers with
+the paper writes. They only know that the bowl has $n_1$ papers with
 $\mathtt{rules_1}$, $n_2$ with $\mathtt{rules_2}$ etc. In other words,
-they know $p(x)$. If player A selects a rare paper ($p(x_i)$ is low),
-the information gain is big ($-\log p(x)$), because the other players
-have prepared their defense for the more probable scenarios. In this
-case, player A has a big advantage. In the extremes, if the bowl
-contains only one set of rules, the gain is zero; the other players
-perfectly know what to expect.
+they know $p(x)$. If player A selects a rare paper, $p(x_i)$ is low,
+the information gain, $-\log p(x_i)$, is big because the other players
+have not prepared their defense for such an unexpected outcome, so
+player A has a big advantage. In the extreme, if the bowl contains
+only one set of rules, the gain is zero; the other players perfectly
+know what to expect.
 
 I prefer the intuition behind the information gain because it helps me
-understand why we use $-\log p(x_i)$. For example, with the **level of
-surprise** you may wonder why not simply use $1 - p(x_i)$, which
-nicely maps the surprise into an intuitive linear scale of $[0,
-1]$. In general, any function $f: [0,1] \rigtharrow \mathbb{R}$ that
-is continuously decreasing in its domain could play this role, so, why
-choose $-\log$? The information gain dictates that if we observe two
-**independent** random samples, $x_i \sim X$ with information gain
+understand why to select $-\log p(x_i)$. For example, with the level
+of surprise you may wonder why not simply use $1 - p(x_i)$, which maps
+the surprise into an intuitive linear scale of $[0, 1]$. In general,
+any function $f: [0,1] \rightarrow \mathbb{R}$ that is continuously
+decreasing in its domain could play this role. So, why to choose
+$-\log$?  The information gain dictates that if we observe two
+**independent** random variables, $x_i \sim X$ with information gain
 $H(x_i)$ and $y_i \sim Y$ with information gain $H(y_i)$, we want the
-total gain to equal the sum of the two. It makes sense. The logarithm
-family is the only one supporting $H(p(x_i, y_i)) = H(p(x_i)p(y_i)) =
-H(x_i) + H(y_i)$.
+total gain equal the sum. It is a meaningful property; if you learn
+$\alpha$ from a source and $\beta$ from another and the two pieces of
+information do not relate to each other, you have learnt a total of
+$\alpha + \beta$. The logarithm family is the only one supporting
+$H(p(x_i, y_i)) = H(p(x_i)p(y_i)) = H(x_i) + H(y_i)$, so this is why
+$-\log$.
 
 With this in mind, we can describe the entropy of a discrete
 distribution as the **expected level of surprise** or the **expected
 information gain** we will get after observing a sample:
 
 \begin{equation}
-\mathbb{H}(X) = \mathbb{E}_{X} [\texttt{information gain}] = - \sum p(x) \log p(x)
+\mathbb{H}(p(x)) = \mathbb{E}_{X} [- \log p(x)] = - \sum p(x) \log p(x)
 \end{equation}
 
 Entropy has its origins in Information Theory. For anyone interested,
@@ -174,19 +178,21 @@ entropy <d-cite key="pml1Book,bishop2006pattern"></d-cite>.
 
 ## Entropy for Uncertainty
 
-Here we focus, on understanding how entropy can be used to measure the
-uncertainty of a distribution. Surprise or information gain relates to
+Here we focus on how entropy can be used to measure the uncertainty of
+a distribution. The concepts of surprise or information gain relate to
 uncertainty. The more uncertain, the more surprised I will get by the
-outcome. The more uncertain, the bigger my information
-gain. Therefore, we can use entropy as a measure of the uncertainty of
-a discrete predictive distribution:
+outcome or the bigger my information gain. Therefore, we can use
+entropy as a measure of the uncertainty of a discrete predictive
+distribution:
 
-$$ \mathbb{H}( \mathbf{y}|\mathbf{x}, \theta) = \sum_{c \in C} p(y_c|x, \theta) \log p(y_c|x, \theta) $$
+\begin{equation}
+\mathbb{H}( \mathbf{y}|\mathbf{x}, \theta) = - \sum_{c \in C} p(y_c|\mathbf{x}, \theta) \log p(y_c|\mathbf{x}, \theta)
+\end{equation}
 
 Be careful with the log nature of entropy, it can be tricky. For
 example, in a binary classification problem, where the predictive
-distribution is $\mathbf{p} = (p_1, 1-p_1)$, the entropy is shown in
-the next figure:
+distribution is $\mathbf{p} = (p_1, 1-p_1)$, the entropy as a function
+of $p_1$ is shown in the next figure.
 
 <div class="row mt-3">
     <div class="col-sm-8 mx-auto mt-5 mt-md-0">
@@ -197,26 +203,36 @@ the next figure:
 As we can see, entropy runs fastly in the beginning and slows down
 later. When the model predicts that the student will pass the MSc with
 $70\%$, we can instantly interpret that the prediction is 30% away
-from being certain. Another model that predicts $85\%$ pass
-can be directly compared to the first, because what these $15$ units
-are; they are 15 more units of belief (out of 100) if you are Bayesian
-and $15/100$ more succeeds if you are a Frequentist and you can repeat
-the experiment many times. Entropy makes such comparisons
-difficult. In the example above with maximum uncertainty equal to
-$H_{max} = log|\mathcal{C}|= 1$, the first prediction has $H_1=0.88$
-and the second $H_2=0.61$. We know that the first prediction is more
-uncertain, but how much? We cannot (directly) interpret how much more
-certain the second model is.
+from being certain. Another model that predicts $85\%$ pass can be
+directly compared to the first, because we know what these extra $15$
+percentage units are; they are 15 extra units of belief if you are a
+Bayesian and $15/100$ extra passes of the MSc if you are a Frequentist
+and you can repeat the experiment many times. \
+
+Entropy makes such comparisons difficult due to the log scale. Entropy
+maps any discrete distribution to the range $[0, H_{max}]$. The
+maximum entropy is given when we allocate equal probability to all
+classes and depends on the number of classes; $H_{max} =
+log|\mathcal{C}|$. In the example above with maximum uncertainty equal
+to $H_{max} = log|\mathcal{C}|= 1$, the first prediction has
+$H_1=0.88$ and the second $H_2=0.61$. We know that the first
+prediction is more uncertain, but how much? We cannot (directly)
+interpret how much more certain the second model is.
 
 ***
 ## Split into Aleatoric and Epistemic
 
-Above, we used entropy to measure the uncertainty of a single model
-(aleatoric uncertainty). In the Bayesian case, we have many models
-$\theta_k$ drawn from the posterior. Entropy gives a convenient way to
-first compute the total uncertainty and then split it into the
-aleatoric and the epistemic component. The **total uncertainty is the
-entropy of the expected prediction**:
+Above, we considered a single model and we used entropy to measure its
+uncertainty. In the Bayesian case, we have many models $\theta_k$
+drawn from the posterior $p(\theta|\mathcal{D})$. We remind you that
+the expected prediction is denoted with $\tilde{\mathbf{y}}$ and is
+computed as the mean prediction among the models, $ \tilde{\mathbf{y}}
+= \tilde{p}(\mathbf{y}| \mathbf{x}, \mathcal{D}) =
+\mathbb{E}_{\theta|\mathcal{D}} [f(\mathbf{x})] \approx \frac{1}{K}
+\sum_k f(\mathbf{x}) $. Entropy gives a convenient way to first
+compute the total uncertainty and then split it into the aleatoric and
+the epistemic component. The **total uncertainty is the entropy of the
+expected prediction**:
 
 $$
 H(\mathbf{y} | \mathbf{x}, \mathcal{D}) = - \sum_{c \in \mathcal{C}}
@@ -224,32 +240,42 @@ H(\mathbf{y} | \mathbf{x}, \mathcal{D}) = - \sum_{c \in \mathcal{C}}
 \mathbf{x}, \mathcal{D})
 $$
 
-We remind you that the expected prediction is
-$\tilde{\mathbf{y}} = \tilde{p}(\mathbf{y} | \mathbf{x}, \mathcal{D}) = \mathbb{E}_{\theta|\mathcal{D}} [f(\mathbf{x})] \approx
-\frac{1}{K} \sum_k f(\mathbf{x}) $.
-
-The aleatoric uncertainty is the expected entropy over the
+The aleatoric component is the **expected entropy over the entropy of
+each separate model**
 $\mathbb{E}_{\theta|\mathcal{D}}[H(\mathbf{y}|\mathbf{x}, \theta)]$:
 
 $$H_a(\mathbf{y} | \mathbf{x}, \mathcal{D}) = \mathbb{E}_{\theta|\mathcal{D}}[H(\mathbf{y}|\mathbf{x}, \theta)] \approx \frac{1}{K} \sum_k H(\mathbf{y}| \mathbf{x}, \theta_k)$$
 
-It always true that $H(\mathbf{y} | \mathbf{x}, \mathcal{D}) >
-H_a(\mathbf{y} | \mathbf{x}, \mathcal{D})$. The epistemic component is
-the remainder, $H_e(\mathbf{y} | \mathbf{x}, \mathcal{D}) =
-H(\mathbf{y} | \mathbf{x}, \mathcal{D}) - H_a(\mathbf{y} | \mathbf{x},
-\mathcal{D})$. And, voila, we finally reached the very convenient form:
+It is not obvious, but it always holds that $H(\mathbf{y} |
+\mathbf{x}, \mathcal{D}) > H_a(\mathbf{y} | \mathbf{x},
+\mathcal{D})$. The epistemic component is the remainder,
+$H_e(\mathbf{y} | \mathbf{x}, \mathcal{D}) = H(\mathbf{y} |
+\mathbf{x}, \mathcal{D}) - H_a(\mathbf{y} | \mathbf{x},
+\mathcal{D})$. And, finally, we reached the very convenient form:
 
 $$H = H_a + H_e $$
 
+To get some intuition for the equations above, let's see what happens
+in a simple binary classification example with two models sampled from
+the posterior. We freeze the expected prediction to $\mathbf{p} =
+(p_1, 1 - p_1)$, which is the average of model 1 with
+$\mathbf{p}^{(1)} = (p_1 - \Delta p, 1 - p_1 + \Delta p)$ and modle 2
+with $\mathbf{p}^{(2)} = (p_1 + \Delta p, 1 - p_1 - \Delta p)$. We
+change the value of $\Delta p$ to see how aleatoric and epistemic
+uncertainty behave. 
 
-Let's dive into the above equations with a simple binary
-classification example with two models sampled from the posterior. We
-freeze the expected prediction to $\mathbf{p} = (p_1, p_2)$, coming
-from $\mathtt{model 1}: \mathbf{p}^{(1)} = (p_1 - \Delta p, p_2 +
-\Delta p)$ and $\mathtt{model 2}: \mathbf{p}^{(2)} = (p_1 + \Delta p,
-p_2 - \Delta p)$. We change the value of $\Delta p$ to see how
-aleatoric and epistemic uncertainty behave. The figure below
-illustrates the evolution for $\mathbf{p} = (p_1=0.3, p_2=0.7)$.
+Some intuition. Firstly, we expect that the total uncertainty remains
+constaint; it is the entropy of the frozen expected prediction. We
+also expect that when $\Delta p = 0$, the two models perfectly match
+$\mathbf{p} = \mathbf{p}^{(1)} = \mathbf{p}^{(2)} = (p_1, 1 - p_1)$,
+so the epistemic component is zero and all the uncertainty comes from
+the aleatoric component. As $\Delta p$ increases, the aleatoric
+component (which is the mean entropy between the two models) lessens,
+giving space to the epistemic.
+
+The figure below illustrates the evolution of the aleatoric and the
+epistemic components as $\Delta p$ grows, for $\mathbf{p} = (p_1=0.3,
+p_2=0.7)$.
 
 <div class="row mt-3">
     <div class="col-sm-8 mx-auto mt-5 mt-md-0">
@@ -257,7 +283,8 @@ illustrates the evolution for $\mathbf{p} = (p_1=0.3, p_2=0.7)$.
     </div>
 </div>
 
-The same figure for an average prediction of $\mathbf{p} = (p_1=0.5, p_2=0.5)$.
+The same evolution for an average prediction of $\mathbf{p} = (p_1=0.5,
+p_2=0.5)$.
 
 <div class="row mt-3">
     <div class="col-sm-8 mx-auto mt-5 mt-md-0">
@@ -265,7 +292,7 @@ The same figure for an average prediction of $\mathbf{p} = (p_1=0.5, p_2=0.5)$.
     </div>
 </div>
 
-And some representative numbers in a table for $\mathbf{p} = (p_1=0.8, p_2=0.2)$.
+And a table with numbers for $\mathbf{p} = (p_1=0.8, p_2=0.2)$.
 
 
 | $\mathbf{p^{(1)}}$ | $H_1$  | $\mathbf{p^{(2)}}$ | $H_2$  | $\mathbf{p}$ | $H$    | $H_a$               | $H_e$               |
@@ -279,21 +306,23 @@ And some representative numbers in a table for $\mathbf{p} = (p_1=0.8, p_2=0.2)$
 
 We observe that due to the log nature of entropy, it is difficult to
 interpret aleatoric and epistemic uncertainties as absolute values or
-as percentages of the total uncertainty. If somebody tells you that the total uncertainty in a binary classification problem is $H = 0.72$
-with the maximum being $1$, you don't get how uncertain the final
-prediction is. If (s)he continues, that out of $H=0.72$, the aleatoric
-uncertainty is $H_a=0.61$ ($84.53\% of H$) and the epistemic
-$H_e=0.11$ ($15.47\% of H$), you can understand that roughly speaking
-the models agree in the prediction and most of the uncertainty comes
-from the model side. All of these would be much clearer, if you simply
-knew that there were two models with predictions $p^{(1)} = (0.95,
-0.05)$ and $p^{(2)} = (0.65, 0.35)$; You could then understand that
+as percentages of the total uncertainty. If somebody tells you that
+the total uncertainty in a binary classification problem is $H =
+0.72$, you don't exactly understand how uncertain the final prediction
+is, even though you can compute that in binary problems $H_{max} =
+\log|\mathcal{C}| = 1$. If (s)he continues, that out of $H=0.72$, the
+aleatoric uncertainty is $H_a=0.61$ ($84.53\%$ of $H$) and the
+epistemic $H_e=0.11$ ($15.47\%$ of $H$), you can understand that
+models agree ($H_e$ is small) and most of the uncertainty is because
+of the aleatoric component. All these would be much clearer, if you
+simply inspect the individual model predictions, $p^{(1)} = (0.95,
+0.05)$ and $p^{(2)} = (0.65, 0.35)$. You could then understand that
 even though they both vote for option 1, they significantly disagree
-on how certain they are, information that is lost behind $H_e$ is
-$15.47\%$ of $H$. But, this inspection of all different model
-predictions is not that easy if you have many models or just the
-posterior distribution. In these cases, entropy provides convenient
-summary statistics that respect $H = H_e + H_a$.
+on how certain they are, information that is not that clear by just
+viewing $H_e = 15.47\%$ of $H$. But, inspecting all different model
+predictions one by one is not easy if you have many models or the
+whole posterior distribution. In these cases, entropy provides a
+convenient summary statistic that respects $H = H_e + H_a$.
 
 ***
 
@@ -314,7 +343,7 @@ classes in the classification problem.</d-footnote> means maximum
 uncertainty and for the internal values it holds that for $H_1 > H_2$
 then the prediction $1$ is more uncertain than the prediction $2$.
 
-Choosing to trust or not the prediction, can be easily decided based
+Choosing whether to trust the prediction, can be easily decided based
 on the **epistemic entropy**. Check the following table:
 
 | $H_a$ | $H_e$ | Take-away                      | Interpretation                                            |
@@ -334,10 +363,10 @@ similar inputs on the training set.
 ### Disadvantages
 
 The table above is very helpful. But what is low and what is high? It
-is difficult to specify a specific number.  For binary problems, if $0
+is difficult to provide a specific number. For binary problems, if $0
 \leq H \leq 0.2 * H_{max}$, the prediction is very certain (close to
 $95\% - 5\%$). Unfortunately, It is even more difficult to define a
 threshold for a high or a low epistemic entropy. For these reasons,
 even though $H_e$ and $H_a$ are helpful for a quick interpretation, we
 need to check more summary statistics for a detailed understanding of
-the uncertainty of a prediction.
+the uncertainty of a Bayesian prediction.
