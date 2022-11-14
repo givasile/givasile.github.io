@@ -94,9 +94,10 @@ Let's quickly set up some notation. In this post, we cover the
 classification case, so we want to predict the correct class $c$ out
 of a set of $\mathcal{C}$. We fit a parametric model $f_{\theta}:
 \mathbf{x} \rightarrow y$ to the training set $\mathcal{D}$. We denote
-the parameter configuration that fits the data best with $\hat{\theta}$ $. The output $y = 1, 2, \ldots, |\mathcal{C}|$ is the index of the
-predicted class. For modeling the aleatoric and the epistemic
-uncertainty we need two extra ingredients.
+the parameter configuration that fits the data best with
+$\hat{\theta}$ $. The output $y = 1, 2, \ldots, |\mathcal{C}|$ is the
+index of the predicted class. For modeling the aleatoric and the
+epistemic uncertainty we need two extra ingredients.
 
 For quantifying the aleatoric uncertainty, we need a trained model
 $\hat{\theta} $ that outputs a distribution $p(\mathbf{y}|\mathbf{x},
@@ -148,16 +149,16 @@ know what to expect.
 
 I prefer the intuition behind the information gain because it helps me
 understand why to select $-\log p(x_i)$. For example, with the level
-of surprise you may wonder why not simply use $1 - p(x_i)$, which maps
-the surprise into an intuitive linear scale of $[0, 1]$. In general,
-any function $f: [0,1] \rightarrow \mathbb{R}$ that is continuously
-decreasing in its domain could play this role. So, why to choose
-$-\log$?  The information gain dictates that if we observe two
+of surprise, you may wonder why not simply use $1 - p(x_i)$, which
+maps the surprise into an intuitive linear scale of $[0, 1]$. In
+general, any function $f: [0,1] \rightarrow \mathbb{R}$ that is
+continuously decreasing in its domain could play this role. So, why
+choose $-\log$?  The information gain dictates that if we observe two
 **independent** random variables, $x_i \sim X$ with information gain
 $H(x_i)$ and $y_i \sim Y$ with information gain $H(y_i)$, we want the
 total gain equal the sum. It is a meaningful property; if you learn
 $\alpha$ from a source and $\beta$ from another and the two pieces of
-information do not relate to each other, you have learnt a total of
+information do not relate to each other, you have learned a total of
 $\alpha + \beta$. The logarithm family is the only one supporting
 $H(p(x_i, y_i)) = H(p(x_i)p(y_i)) = H(x_i) + H(y_i)$, so this is why
 $-\log$.
@@ -204,7 +205,7 @@ As we can see, entropy runs fastly in the beginning and slows down
 later. When the model predicts that the student will pass the MSc with
 $70\%$, we can instantly interpret that the prediction is 30% away
 from being certain. Another model that predicts $85\%$ pass can be
-directly compared to the first, because we know what these extra $15$
+directly compared to the first because we know what these extra $15$
 percentage units are; they are 15 extra units of belief if you are a
 Bayesian and $15/100$ extra passes of the MSc if you are a Frequentist
 and you can repeat the experiment many times. \
@@ -222,9 +223,9 @@ interpret how much more certain the second model is.
 ***
 ## Split into Aleatoric and Epistemic
 
-Above, we considered a single model and we used entropy to measure its
+Above, we considered a single model and used entropy to measure its
 uncertainty. In the Bayesian case, we have many models $\theta_k$
-drawn from the posterior $p(\theta|\mathcal{D})$. We remind you that
+drawn from the posterior $p(\theta|\mathcal{D})$. We remind that
 the expected prediction is denoted with $\tilde{\mathbf{y}}$ and is
 computed as the mean prediction among the models, $ \tilde{\mathbf{y}}
 = \tilde{p}(\mathbf{y}| \mathbf{x}, \mathcal{D}) =
@@ -259,13 +260,13 @@ To get some intuition for the equations above, let's see what happens
 in a simple binary classification example with two models sampled from
 the posterior. We freeze the expected prediction to $\mathbf{p} =
 (p_1, 1 - p_1)$, which is the average of model 1 with
-$\mathbf{p}^{(1)} = (p_1 - \Delta p, 1 - p_1 + \Delta p)$ and modle 2
+$\mathbf{p}^{(1)} = (p_1 - \Delta p, 1 - p_1 + \Delta p)$ and model 2
 with $\mathbf{p}^{(2)} = (p_1 + \Delta p, 1 - p_1 - \Delta p)$. We
 change the value of $\Delta p$ to see how aleatoric and epistemic
 uncertainty behave. 
 
 Some intuition. Firstly, we expect that the total uncertainty remains
-constaint; it is the entropy of the frozen expected prediction. We
+constant; it is the entropy of the frozen expected prediction. We
 also expect that when $\Delta p = 0$, the two models perfectly match
 $\mathbf{p} = \mathbf{p}^{(1)} = \mathbf{p}^{(2)} = (p_1, 1 - p_1)$,
 so the epistemic component is zero and all the uncertainty comes from
@@ -314,7 +315,7 @@ is, even though you can compute that in binary problems $H_{max} =
 aleatoric uncertainty is $H_a=0.61$ ($84.53\%$ of $H$) and the
 epistemic $H_e=0.11$ ($15.47\%$ of $H$), you can understand that
 models agree ($H_e$ is small) and most of the uncertainty is because
-of the aleatoric component. All these would be much clearer, if you
+of the aleatoric component. All these would be much clearer if you
 simply inspect the individual model predictions, $p^{(1)} = (0.95,
 0.05)$ and $p^{(2)} = (0.65, 0.35)$. You could then understand that
 even though they both vote for option 1, they significantly disagree
@@ -327,8 +328,6 @@ convenient summary statistic that respects $H = H_e + H_a$.
 ***
 
 ## Conclusion
-
-### Advantages 
 
 Entropy maps any categorical distribution to three summary statistics;
 the aleatoric $H_a$, the epistemic $H_e$ and the total uncertainty $H
@@ -353,8 +352,8 @@ on the **epistemic entropy**. Check the following table:
 | low   | high  | Don't trust the prediction     | The input is away from the training data manifold.        |
 | high  | high  | Don't trust the prediction     | The input is away from the training data manifold.        |
 
-If $H_e$ is small, models aggree so we can trust their outcome; if
-they are all certain, we can follow the prediction, if they are all
+If $H_e$ is small, models agree so we can trust their outcome; if
+they are all certain, we can follow the prediction if they are all
 uncertain, we know that we are on an edge case where the features do
 not provide enough information to separate the classes. If $H_e$ is
 big, you cannot trust the prediction, because the models have not seen
