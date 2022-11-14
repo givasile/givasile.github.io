@@ -1,83 +1,60 @@
----
----
-
-@string{aps = {American Physical Society,}}
-
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation,},
-  preview={brownian-motion.gif}
+@article{Gkolemis2020,
+  abbr={RomcElfi},
+  title={Extending the statistical software package Engine for Likelihood-Free Inference},
+  author={Gkolemis, Vasilis and Gutmann, Michael},
+  abstract={Bayesian inference is a principled framework for dealing with uncertainty. The practitioner can perform an initial assumption for the physical phenomenon they want to model (prior belief), collect some data and then adjust the initial assumption in the light of the new evidence (posterior belief). Approximate Bayesian Computation (ABC) methods, also known as likelihood-free inference tech- niques, are a class of models used for performing inference when the likelihood is intractable. The unique requirement of these models is a black-box sampling machine. Due to the modelling-freedom they provide these approaches are particularly captivating. Robust Optimisation Monte Carlo (ROMC) is one of the most recent techniques of the specific domain. It approximates the posterior distribution by solving independent optimisation problems. This dissertation focuses on the implementation of the ROMC method in the software package ”Engine for Likelihood-Free Inference” (ELFI). In the first chapters, we provide the mathematical formulation and the algorithmic description of the ROMC approach. In the following chapters, we describe our implementation; (a) we present all the functionalities provided to the user and (b) we demonstrate how to perform inference on some real examples. Our implementation provides a robust and efficient solution to a practitioner who wants to perform inference on a simulator-based model. Furthermore, it exploits parallel processing for accelerating the inference wherever it is possible. Finally, it has been designed to serve extensibility; the user can easily replace specific subparts of the method without significant overhead on the development side. Therefore, it can be used by a researcher for further experimentation.},
+  year={2020},
+  month={September},
+  url={https://arxiv.org/pdf/2011.03977.pdf},
+  html={https://arxiv.org/abs/2011.03977},
+  pdf={edinburgh_thesis.pdf},
+  code = {https://github.com/elfi-dev/elfi},
+  selected={false}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics,},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers,}
-}
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein, A. and Podolsky, B. and Rosen, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.,},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  selected={true}
-}
-
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik,},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
-}
-
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.,},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
-
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
-
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif}
+@inproceedings{gkolemis22a,
+    abbr={DALE},
+    title = {DALE: Differential Accumulated Local Effects for efficient and accurate global explanations},
+    booktitle= {Asian Conference on Machine Learning (ACML)},
+    author = {Gkolemis, Vasilis and Dalamagas, Theodore and Diou, Christos},
+    abstract = {Accumulated Local Effect (ALE) is a method for
+                  accurately estimating feature effects, overcoming
+                  fundamental failure modes of previously-existed
+                  methods, such as Partial Dependence Plots. However,
+                  ALE's approximation, i.e. the method for estimating
+                  ALE from the limited samples of the training set,
+                  faces two weaknesses. First, it does not scale well
+                  in cases where the input has high dimensionality,
+                  and, second, it is vulnerable to out-of-distribution
+                  (OOD) sampling when the training set is relatively
+                  small. In this paper, we propose a novel ALE
+                  approximation, called Differential Accumulated Local
+                  Effects (DALE), which can be used in cases where the
+                  ML model is differentiable and an
+                  auto-differentiable framework is accessible. Our
+                  proposal has significant computational advantages,
+                  making feature effect estimation applicable to
+                  high-dimensional Machine Learning scenarios with
+                  near-zero computational overhead. Furthermore, DALE
+                  does not create artificial points for calculating
+                  the feature effect, resolving misleading estimations
+                  due to OOD sampling. Finally, we formally prove
+                  that, under some hypotheses, DALE is an unbiased
+                  estimator of ALE and we present a method for
+                  quantifying the standard error of the
+                  explanation. Experiments using both synthetic and
+                  real datasets demonstrate the value of the proposed
+                  approach. },
+    selected = {true},
+    keywords = {Feature Effect, Explainable AI, Interpretable ML, Global Methods, Neural Networks},
+    year = {2022},
+    month = {October},
+    arxiv = {2210.04542},
+    journal = {arXiv:2210.04542},
+    url={https://arxiv.org/abs/2210.04542},
+    pdf = {gkolemis22_dale.pdf},
+    supp = {gkolemis22_dale_supp.pdf},
+    code = {https://github.com/givasile/DALE},
+    bibtex_show = {true}
 }
