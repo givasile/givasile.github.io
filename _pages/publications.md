@@ -2,8 +2,8 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: Newest to oldest
-years: [2022, 2020]
+description: 
+years: [2023, 2022, 2020]
 nav: true
 nav_order: 1
 ---

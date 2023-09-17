@@ -18,34 +18,7 @@
     title = {DALE: Differential Accumulated Local Effects for efficient and accurate global explanations},
     booktitle= {Asian Conference on Machine Learning (ACML)},
     author = {Gkolemis, Vasilis and Dalamagas, Theodore and Diou, Christos},
-    abstract = {Accumulated Local Effect (ALE) is a method for
-                  accurately estimating feature effects, overcoming
-                  fundamental failure modes of previously-existed
-                  methods, such as Partial Dependence Plots. However,
-                  ALE's approximation, i.e. the method for estimating
-                  ALE from the limited samples of the training set,
-                  faces two weaknesses. First, it does not scale well
-                  in cases where the input has high dimensionality,
-                  and, second, it is vulnerable to out-of-distribution
-                  (OOD) sampling when the training set is relatively
-                  small. In this paper, we propose a novel ALE
-                  approximation, called Differential Accumulated Local
-                  Effects (DALE), which can be used in cases where the
-                  ML model is differentiable and an
-                  auto-differentiable framework is accessible. Our
-                  proposal has significant computational advantages,
-                  making feature effect estimation applicable to
-                  high-dimensional Machine Learning scenarios with
-                  near-zero computational overhead. Furthermore, DALE
-                  does not create artificial points for calculating
-                  the feature effect, resolving misleading estimations
-                  due to OOD sampling. Finally, we formally prove
-                  that, under some hypotheses, DALE is an unbiased
-                  estimator of ALE and we present a method for
-                  quantifying the standard error of the
-                  explanation. Experiments using both synthetic and
-                  real datasets demonstrate the value of the proposed
-                  approach. },
+    abstract = {Accumulated Local Effect (ALE) is a method for accurately estimating feature effects, overcoming fundamental failure modes of previously-existed methods, such as Partial Dependence Plots. However, ALE's approximation, i.e. the method for estimating ALE from the limited samples of the training set, faces two weaknesses. First, it does not scale well in cases where the input has high dimensionality, and, second, it is vulnerable to out-of-distribution (OOD) sampling when the training set is relatively small. In this paper, we propose a novel ALE approximation, called Differential Accumulated Local Effects (DALE), which can be used in cases where the ML model is differentiable and an auto-differentiable framework is accessible. Our proposal has significant computational advantages, making feature effect estimation applicable to high-dimensional Machine Learning scenarios with near-zero computational overhead. Furthermore, DALE does not create artificial points for calculating the feature effect, resolving misleading estimations due to OOD sampling. Finally, we formally prove that, under some hypotheses, DALE is an unbiased estimator of ALE and we present a method for quantifying the standard error of the explanation. Experiments using both synthetic and real datasets demonstrate the value of the proposed approach.},
     selected = {true},
     keywords = {Feature Effect, Explainable AI, Interpretable ML, Global Methods, Neural Networks},
     year = {2022},
@@ -58,5 +31,55 @@
     code = {https://github.com/givasile/DALE},
     slides = {gkolemis22_dale_presentation.pdf},
     poster = {gkolemis22_dale_poster.pdf},
+    bibtex_show = {true}
+}
+
+
+@inproceedings{gkolemis23ram,
+    abbr={RAM},
+    title = {Regionally Additive Models: Explainable-by-design models minimizing feature interactions},
+    booktitle= {Accepted at European Conference in Machine Learning (ECML)},
+    author = {Gkolemis, Vasilis and Tzerefos, Anargiros and Dalamagas, Theodore and Ntoutsi, Eirini and Diou, Christos},
+    abstract = {Generalized Additive Models (GAMs) are widely used explainable-by-design models in various applications. GAMs assume that the output can be represented as a sum of univariate functions, referred to as components. However, this assumption fails in ML problems where the output depends on multiple features simultaneously. In these cases, GAMs fail to capture the interaction terms of the underlying function, leading to subpar accuracy. To (partially) address this issue, we propose Regionally Additive Models (RAMs), a novel class of explainable-by-design models. RAMs identify subregions within the feature space where interactions are minimized. Within these regions, it is more accurate to express the output as a sum of univariate functions (components). Consequently, RAMs fit one component per subregion of each feature instead of one component per feature. This approach yields a more expressive model compared to GAMs while retaining interpretability. The RAM framework consists of three steps. Firstly, we train a black-box model. Secondly, using Regional Effect Plots, we identify subregions where the black-box model exhibits near-local additivity. Lastly, we fit a GAM component for each identified subregion. We validate the effectiveness of RAMs through experiments on both synthetic and real-world datasets. The results confirm that RAMs offer improved expressiveness compared to GAMs while maintaining interpretability.
+    },
+    selected = {true},
+    keywords = {Explainable AI, Generalized Additive models, x-by-design},
+    year = {2023},
+    month = {September},
+    pdf = {gkolemis23_ram.pdf},
+    code = {https://github.com/givasile/RAM},
+    bibtex_show = {true}
+}
+
+
+@inproceedings{gkolemis23rhale,
+    abbr={RHALE},
+    title = {RHALE: Robust and Heterogeneity-aware Accumulated Local Effects},
+    booktitle= {Accepted at European Conference in Artificial Intelligence (ECAI)},
+    author = {Gkolemis, Vasilis and and Dalamagas, Theodore and Ntoutsi, Eirini and Diou, Christos},
+    abstract = {Accumulated Local Effects (ALE) is a widely-used explainability method for isolating the average effect of a feature on the output, because it handles cases with correlated features well. However, it has two limitations. First, it does not quantify the deviation of instance-level (local) effects from the average (global) effect, known as heterogeneity. Second, for estimating the average effect, it partitions the feature domain into user-defined, fixed-sized bins, where different bin sizes may lead to inconsistent ALE estimations. To address these limitations, we propose Robust and Heterogeneity-aware ALE (RHALE). RHALE quantifies the heterogeneity by considering the standard deviation of the local effects and automatically determines an optimal variable-size bin-splitting. In this paper, we prove that to achieve an unbiased approximation of the standard deviation of local effects within each bin, bin splitting must follow a set of sufficient conditions. Based on these conditions, we propose an algorithm that automatically determines the optimal partitioning, balancing the estimation bias and variance. Through evaluations on synthetic and real datasets, we demonstrate the superiority of RHALE compared to other methods, including the advantages of automatic bin splitting, especially in cases with correlated features.
+    },
+    selected = {true},
+    keywords = {Explainable AI, Generalized Additive models, x-by-design},
+    year = {2023},
+    month = {October},
+    pdf = {gkolemis23_rhale.pdf},
+    code = {https://github.com/givasile/RHALE},
+    bibtex_show = {true}
+}
+
+
+@inproceedings{gkolemis23romc,
+    abbr={ROMC},
+    title = {An Extendable Python Implementation of ROMC},
+    booktitle= {Accepted at Journal of Statistical Software (JSS)},
+    author = {Gkolemis, Vasilis and Gutmann, Michael and Pesonen, Henri},
+    abstract = {Performing inference in statistical models with an intractable likelihood is challenging, therefore, most likelihood-free inference (LFI) methods encounter accuracy and efficiency limitations. In this paper, we present the implementation of the LFI method Robust Optimisation Monte Carlo (ROMC) in the Python package ELFI. ROMC is a novel and efficient (highly-parallelizable) LFI framework that provides accurate weighted samples from the posterior. Our implementation can be used in two ways. First, a scientist may use it as an out-of-the-box LFI algorithm; we provide an easy-to-use API harmonized with the principles of ELFI, enabling effortless comparisons with the rest of the methods included in the package. Additionally, we have carefully split ROMC into isolated components for supporting extensibility. A researcher may experiment with novel method(s) for solving part(s) of ROMC without reimplementing everything from scratch. In both scenarios, the ROMC parts can run in a fully-parallelized manner, exploiting all CPU cores. We also provide helpful functionalities for (i) inspecting the inference process and (ii) evaluating the obtained samples. Finally, we test the robustness of our implementation on some typical LFI examples.},
+    selected = {true},
+    keywords = {Bayesian inference, implicit models, likelihood-free, Python, ELFI},
+    year = {2023},
+    month = {September},
+    pdf = {gkolemis23_romc.pdf},
+    code = {https://github.com/givasile/ROMC-SW},
     bibtex_show = {true}
 }
