@@ -45,7 +45,7 @@ I also have a special interest for probalistic models, where I explore and expla
 <!-- ◍ Main research interests include (a) Explainable AI, (b) Probabilistic Inference, and (c) Deep Learning. -->
 
 Beyond my research background, I often work in captivating industrial projects, 
-where I develop production-ready Deep Learning solutions for addressing challenges in Natural Language Processing and [Computer Vision]({{site.url}}/projects/1_thesis_auth/) problems.
+where I deliver Deep Learning solutions for addressing challenges in [NLP](https://github.com/M2Lschool/tutorials2023/tree/main/3_nlp) and [Computer Vision]({{site.url}}/projects/1_thesis_auth/) problems.
 Finally, I actively contribute to some open-source projects, like [ELFI](https://github.com/elfi-dev/elfi).
 
 ---
