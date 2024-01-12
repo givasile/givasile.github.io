@@ -3,14 +3,14 @@ layout: distill
 title: Aleatoric and epistemic uncertainty in classification problems
 description: Discuss how categorical entropy can be used to quantify the aleatoric and epistemic uncertainty in Bayesian modeling.
 date: 2022-11-05
-tags: IPML
+tags: PhD
 category: IPML
 comments: true
 
 authors:
   - name: Vasilis Gkolemis
     affiliations:
-      name: Harokopio University Athens
+      name: ATHENA RC | HUA
 
 bibliography: categorical-uncertainty.bib
 
