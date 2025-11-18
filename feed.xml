@@ -1,77 +1,777 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://givasile.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://givasile.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-01-12T14:48:00+00:00</updated><id>https://givasile.github.io/feed.xml</id><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">Github Actions for connecting two Github repositories</title><link href="https://givasile.github.io/blog/2024/publish-site-github-pages/" rel="alternate" type="text/html" title="Github Actions for connecting two Github repositories"/><published>2024-01-12T00:00:00+00:00</published><updated>2024-01-12T00:00:00+00:00</updated><id>https://givasile.github.io/blog/2024/publish-site-github-pages</id><content type="html" xml:base="https://givasile.github.io/blog/2024/publish-site-github-pages/"><![CDATA[<h2 id="mkdocs-documenation">MkDocs documenation</h2> <p>Working on the development of a <code class="language-plaintext highlighter-rouge">Python</code> package dedicated to <a href="https://xai-effector.github.io/02_regional_effect_intro/">regional effect plots</a> (named <code class="language-plaintext highlighter-rouge">effector</code> with a close official release—stay tuned!), I reached the documentation phase. Looking around, I discovered the <a href="https://www.mkdocs.org/"><code class="language-plaintext highlighter-rouge">MkDocs</code></a> package, specifically its <a href="https://squidfunk.github.io/mkdocs-material/"><code class="language-plaintext highlighter-rouge">mkdocs-material</code></a> theme. I was impressed by its elegance and user-friendly nature, considering it a noteworthy and straightforward alternative to the widely adopted <a href="https://www.sphinx-doc.org/en/master/"><code class="language-plaintext highlighter-rouge">Sphinx</code></a> package. You can take a look at the documentation site I effortlessly created <a href="https://xai-effector.github.io">here</a>.</p> <p>Upon completing the site creation, I explored hosting options and identified two primary alternatives: <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/#read-the-docs">readthedocs</a> and <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/#github-pages">GitHub Pages</a>. Given my familiarity with GitHub Pages, I opted for the latter.</p> <p>Mkdocs provides a convenient command, <code class="language-plaintext highlighter-rouge">mkdocs gh-deploy</code>, for deploying documentation to the same GitHub account as your package. However, this command cannot help in our case. I have developed <code class="language-plaintext highlighter-rouge">effector</code> in my personal GitHub account <a href="https://github.com/givasile/effector"><code class="language-plaintext highlighter-rouge">givasile/effector</code></a>, and my personal account hosts my personal webpage. Since GitHub allows only one GitHub Page per account, I had to creae a separate GitHub account <a href="https://github.com/xai-effector/"><code class="language-plaintext highlighter-rouge">xai-effector/xai-effector.github.io</code></a> to host the documentation for <code class="language-plaintext highlighter-rouge">effector</code>.</p> <p>The missing link is an automation to connect the <code class="language-plaintext highlighter-rouge">givasile/effector</code> repository in my personal account with the <code class="language-plaintext highlighter-rouge">xai-effector/xai-effector.github.io</code>, which serves as the source repo for publishing the documentation at <a href="https://xai-effector.github.io">https://xai-effector.github.io</a>. The solution I am about to outline can be extended to connect any two repositories from different accounts, such as <code class="language-plaintext highlighter-rouge">account_1/repo_1</code> to <code class="language-plaintext highlighter-rouge">account_2/repo_2</code>.</p> <h2 id="github-actions">Github Actions</h2> <p>GitHub Actions is a way to initiate an action (workflow) in response to a new commit in a GitHub repository. In our specific case, we aim to initiate the workflow whenever a new commit is pushed to <code class="language-plaintext highlighter-rouge">givasile/effector</code>. This workflow comprises two main tasks: (a) building the documentation located within <code class="language-plaintext highlighter-rouge">givasile/effector/docs</code> and (b) pushing the compiled documentation to <code class="language-plaintext highlighter-rouge">xai-effector/xai-effector.github.io</code>.</p> <p>Let’s initialize the workflow:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">on</span><span class="pi">:</span>
-  <span class="na">push</span><span class="pi">:</span>
-    <span class="na">branches</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">main</span>
-    <span class="na">tags</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">v*</span>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://alshedivat.github.io/al-folio/feed.xml" rel="self" type="application/atom+xml"/><link href="https://alshedivat.github.io/al-folio/" rel="alternate" type="text/html" hreflang="en"/><updated>2025-11-18T16:48:50+00:00</updated><id>https://alshedivat.github.io/al-folio/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra</title><link href="https://alshedivat.github.io/al-folio/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra/" rel="alternate" type="text/html" title="Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra"/><published>2024-05-14T00:00:00+00:00</published><updated>2024-05-14T00:00:00+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra/"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[We’re sharing updates across our Gemini family of models and a glimpse of Project Astra, our vision for the future of AI assistants.]]></summary></entry><entry><title type="html">a post with tabs</title><link href="https://alshedivat.github.io/al-folio/blog/2024/tabs/" rel="alternate" type="text/html" title="a post with tabs"/><published>2024-05-01T00:32:13+00:00</published><updated>2024-05-01T00:32:13+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/tabs</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/tabs/"><![CDATA[<p>This is how a post with <a href="https://github.com/Ovski4/jekyll-tabs">tabs</a> looks like. Note that the tabs could be used for different purposes, not only for code.</p> <h2 id="first-tabs">First tabs</h2> <p>To add tabs, use the following syntax:</p> <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">tabs</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="cp">%}</span>
 
-<span class="na">jobs</span><span class="pi">:</span>
-  <span class="na">build-documentation</span><span class="pi">:</span>
-  <span class="s">...</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">tab</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="nv">tab-name-1</span><span class="w"> </span><span class="cp">%}</span>
 
-  <span class="na">push-site</span><span class="pi">:</span>
-  <span class="s">...</span>
-</code></pre></div></div> <p>In the provided snippet, we specify that the GitHub Action should only be triggered in the event of a new release—specifically, a new commit in the main branch with a tag starting with <code class="language-plaintext highlighter-rouge">v*</code>, such as <code class="language-plaintext highlighter-rouge">v0.0.1</code>.</p> <h3 id="build-the-documentation">Build the documentation</h3> <p>In the first <code class="language-plaintext highlighter-rouge">job</code>, we build the documenation using <code class="language-plaintext highlighter-rouge">mdkdocs build</code> and we store it as an artifact:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">build-documentation</span><span class="pi">:</span>
-    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+Content 1
 
-    <span class="na">steps</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout current repo</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Python</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-python@v4</span>
-      <span class="na">with</span><span class="pi">:</span>
-        <span class="na">python-version</span><span class="pi">:</span> <span class="m">3.11</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">tab</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="nv">tab-name-2</span><span class="w"> </span><span class="cp">%}</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-        <span class="s">python -m pip install --upgrade pip</span>
-        <span class="s">pip install mkdocs mkdocstrings mkdocstrings-python mkdocs-material</span>
+Content 2
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build docs</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-        <span class="s">cd docs</span>
-        <span class="s">mkdocs build</span>
-        <span class="s">cd ..</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Save site site as artifact</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v2</span>
-      <span class="na">with</span><span class="pi">:</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">docs-site</span>
-        <span class="na">path</span><span class="pi">:</span> <span class="s">docs/site</span>
-</code></pre></div></div> <h3 id="push-to-another-repo">Push to another repo</h3> <p>To push the compiled site to <code class="language-plaintext highlighter-rouge">xai-effector/xai-effector.github.io</code>, we require credentials. This can be achieved in two steps. Initially, we have to navigate to <code class="language-plaintext highlighter-rouge">xai-effector</code> GitHub account and generate a <code class="language-plaintext highlighter-rouge">TOKEN</code> that enables to programmatically access all repositories of <code class="language-plaintext highlighter-rouge">xai-effector</code>. To do so, click on the account image, and then access <code class="language-plaintext highlighter-rouge">settings</code> (located at the top-right).</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot-480.webp"/> <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot-800.webp"/> <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot-1400.webp"/> <img src="/assets/img/posts/2022_01_github_pages/Screenshot.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>After selecting <code class="language-plaintext highlighter-rouge">Developer Settings</code> from the list on the left (bottom-left), generate a new token as shown in the image below. Copy the token to the clipboard (or store it securely), as it will be required in the subsequent step. This token serves the purpose of programmatically connecting to the <code class="language-plaintext highlighter-rouge">xai-effector</code> GitHub account.</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_1-480.webp"/> <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_1-800.webp"/> <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_1-1400.webp"/> <img src="/assets/img/posts/2022_01_github_pages/Screenshot_1.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>Following this, log out of the <code class="language-plaintext highlighter-rouge">xai-effector</code> account and log in to the <code class="language-plaintext highlighter-rouge">givasile</code> account. Navigate to the <code class="language-plaintext highlighter-rouge">givasile-effector</code> repository and access the settings <em>of the repo</em>.</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_2-480.webp"/> <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_2-800.webp"/> <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_2-1400.webp"/> <img src="/assets/img/posts/2022_01_github_pages/Screenshot_2.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>Now, within the <code class="language-plaintext highlighter-rouge">givasile-effector</code> repository, go to <code class="language-plaintext highlighter-rouge">Actions -&gt; Secrets</code> and add a new token. Give the token any name you prefer (e.g., I named it <code class="language-plaintext highlighter-rouge">EFFECTOR_ACTION_API_KEY</code>), and paste the token that you copied earlier. This step ensures that the token for accessing <code class="language-plaintext highlighter-rouge">xai-effecor</code> is accessible from any GitHub action associated with <code class="language-plaintext highlighter-rouge">givasile/effector</code>.</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_3-480.webp"/> <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_3-800.webp"/> <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/posts/2022_01_github_pages/Screenshot_3-1400.webp"/> <img src="/assets/img/posts/2022_01_github_pages/Screenshot_3.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>Now we have all we need to push the documentation with the following job:</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">push-site</span><span class="pi">:</span>
-    <span class="na">name</span><span class="pi">:</span> <span class="s">Copy site to effector.github.io</span>
-    <span class="na">needs</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">build-documentation</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endtabs</span><span class="w"> </span><span class="cp">%}</span>
+</code></pre></div></div> <p>With this you can generate visualizations like:</p> <ul id="log" class="tab" data-tab="311d0da9-7d7b-499c-a8c2-b24cce608a29" data-name="log"> <li class="active" id="log-php"> <a href="#">php </a> </li> <li id="log-js"> <a href="#">js </a> </li> <li id="log-ruby"> <a href="#">ruby </a> </li> </ul> <ul class="tab-content" id="311d0da9-7d7b-499c-a8c2-b24cce608a29" data-name="log"> <li class="active"> <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
+</code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pputs</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
+</code></pre></div></div> </li> </ul> <h2 id="another-example">Another example</h2> <ul id="data-struct" class="tab" data-tab="922e8bbf-280a-4363-ae51-9b92db1630b7" data-name="data-struct"> <li class="active" id="data-struct-yaml"> <a href="#">yaml </a> </li> <li id="data-struct-json"> <a href="#">json </a> </li> </ul> <ul class="tab-content" id="922e8bbf-280a-4363-ae51-9b92db1630b7" data-name="data-struct"> <li class="active"> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">whatsup"</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">hi"</span>
+</code></pre></div></div> </li> <li> <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"hello"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"whatsup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div> </li> </ul> <h2 id="tabs-for-something-else">Tabs for something else</h2> <ul id="something-else" class="tab" data-tab="452df393-b7ab-4773-8762-141a15f10f4e" data-name="something-else"> <li class="active" id="something-else-text"> <a href="#">text </a> </li> <li id="something-else-quote"> <a href="#">quote </a> </li> <li id="something-else-list"> <a href="#">list </a> </li> </ul> <ul class="tab-content" id="452df393-b7ab-4773-8762-141a15f10f4e" data-name="something-else"> <li class="active"> <p>Regular text</p> </li> <li> <blockquote> <p>A quote</p> </blockquote> </li> <li> <p>Hipster list</p> <ul> <li>brunch</li> <li>fixie</li> <li>raybans</li> <li>messenger bag</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry><entry><title type="html">a post with typograms</title><link href="https://alshedivat.github.io/al-folio/blog/2024/typograms/" rel="alternate" type="text/html" title="a post with typograms"/><published>2024-04-29T23:36:10+00:00</published><updated>2024-04-29T23:36:10+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/typograms</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/typograms/"><![CDATA[<p>This is an example post with some <a href="https://github.com/google/typograms/">typograms</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
+</span><span class="sb">+----+
+|    |---&gt; My first diagram!
++----+</span>
+<span class="p">```</span>
+</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-typograms">+----+
+|    |---&gt; My first diagram!
++----+
+</code></pre> <p>Another example:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
+</span><span class="sb">.------------------------.
+|.----------------------.|
+||"https://example.com" ||
+|'----------------------'|
+| ______________________ |
+||                      ||
+||   Welcome!           ||
+||                      ||
+||                      ||
+||  .----------------.  ||
+||  | username       |  ||
+||  '----------------'  ||
+||  .----------------.  ||
+||  |"*******"       |  ||
+||  '----------------'  ||
+||                      ||
+||  .----------------.  ||
+||  |   "Sign-up"    |  ||
+||  '----------------'  ||
+||                      ||
+|+----------------------+|
+.------------------------.</span>
+<span class="p">```</span>
+</code></pre></div></div> <p>which generates:</p> <pre><code class="language-typograms">.------------------------.
+|.----------------------.|
+||"https://example.com" ||
+|'----------------------'|
+| ______________________ |
+||                      ||
+||   Welcome!           ||
+||                      ||
+||                      ||
+||  .----------------.  ||
+||  | username       |  ||
+||  '----------------'  ||
+||  .----------------.  ||
+||  |"*******"       |  ||
+||  '----------------'  ||
+||                      ||
+||  .----------------.  ||
+||  |   "Sign-up"    |  ||
+||  '----------------'  ||
+||                      ||
+|+----------------------+|
+.------------------------.
+</code></pre> <p>For more examples, check out the <a href="https://google.github.io/typograms/#examples">typograms documentation</a>.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="diagrams"/><summary type="html"><![CDATA[this is what included typograms code could look like]]></summary></entry><entry><title type="html">a post that can be cited</title><link href="https://alshedivat.github.io/al-folio/blog/2024/post-citation/" rel="alternate" type="text/html" title="a post that can be cited"/><published>2024-04-28T15:06:00+00:00</published><updated>2024-04-28T15:06:00+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/post-citation</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/post-citation/"><![CDATA[<p>This is an example post that can be cited. The content of the post ends here, while the citation information is automatically provided below. The only thing needed is for you to set the <code class="language-plaintext highlighter-rouge">citation</code> key in the front matter to <code class="language-plaintext highlighter-rouge">true</code>.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="citation"/><summary type="html"><![CDATA[this is what a post that can be cited looks like]]></summary></entry><entry><title type="html">a post with pseudo code</title><link href="https://alshedivat.github.io/al-folio/blog/2024/pseudocode/" rel="alternate" type="text/html" title="a post with pseudo code"/><published>2024-04-15T00:01:00+00:00</published><updated>2024-04-15T00:01:00+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/pseudocode</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/pseudocode/"><![CDATA[<p>This is an example post with some pseudo code rendered by <a href="https://github.com/SaswatPadhi/pseudocode.js">pseudocode</a>. The example presented here is the same as the one in the <a href="https://saswat.padhi.me/pseudocode.js/">pseudocode.js</a> documentation, with only one simple but important change: everytime you would use <code class="language-plaintext highlighter-rouge">$</code>, you should use <code class="language-plaintext highlighter-rouge">$$</code> instead. Also, note that the <code class="language-plaintext highlighter-rouge">pseudocode</code> key in the front matter is set to <code class="language-plaintext highlighter-rouge">true</code> to enable the rendering of pseudo code. As an example, using this code:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">pseudocode
+</span><span class="sb">% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
+\begin{algorithm}
+\caption{Quicksort}
+\begin{algorithmic}
+\PROCEDURE{Quicksort}{$$A, p, r$$}
+    \IF{$$p &lt; r$$}
+        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
+        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
+        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
+    \ENDIF
+\ENDPROCEDURE
+\PROCEDURE{Partition}{$$A, p, r$$}
+    \STATE $$x = A[r]$$
+    \STATE $$i = p - 1$$
+    \FOR{$$j = p$$ \TO $$r - 1$$}
+        \IF{$$A[j] &lt; x$$}
+            \STATE $$i = i + 1$$
+            \STATE exchange
+            $$A[i]$$ with $$A[j]$$
+        \ENDIF
+        \STATE exchange $$A[i]$$ with $$A[r]$$
+    \ENDFOR
+\ENDPROCEDURE
+\end{algorithmic}
+\end{algorithm}</span>
+<span class="p">```</span>
+</code></pre></div></div> <p>Generates:</p> <pre><code class="language-pseudocode">% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
+\begin{algorithm}
+\caption{Quicksort}
+\begin{algorithmic}
+\PROCEDURE{Quicksort}{$$A, p, r$$}
+    \IF{$$p &lt; r$$}
+        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
+        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
+        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
+    \ENDIF
+\ENDPROCEDURE
+\PROCEDURE{Partition}{$$A, p, r$$}
+    \STATE $$x = A[r]$$
+    \STATE $$i = p - 1$$
+    \FOR{$$j = p$$ \TO $$r - 1$$}
+        \IF{$$A[j] &lt; x$$}
+            \STATE $$i = i + 1$$
+            \STATE exchange
+            $$A[i]$$ with $$A[j]$$
+        \ENDIF
+        \STATE exchange $$A[i]$$ with $$A[r]$$
+    \ENDFOR
+\ENDPROCEDURE
+\end{algorithmic}
+\end{algorithm}
+</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included pseudo code could look like]]></summary></entry><entry><title type="html">a post with code diff</title><link href="https://alshedivat.github.io/al-folio/blog/2024/code-diff/" rel="alternate" type="text/html" title="a post with code diff"/><published>2024-01-27T19:22:00+00:00</published><updated>2024-01-27T19:22:00+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/code-diff</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/code-diff/"><![CDATA[<p>You can display diff code by using the regular markdown syntax:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff
+</span><span class="gh">diff --git a/sample.js b/sample.js
+index 0000001..0ddf2ba
+</span><span class="gd">--- a/sample.js
+</span><span class="gi">+++ b/sample.js
+</span><span class="p">@@ -1 +1 @@</span>
+<span class="gd">-console.log("Hello World!")
+</span><span class="gi">+console.log("Hello from Diff2Html!")</span>
+<span class="p">```</span>
+</code></pre></div></div> <p>Which generates:</p> <div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh">diff --git a/sample.js b/sample.js
+index 0000001..0ddf2ba
+</span><span class="gd">--- a/sample.js
+</span><span class="gi">+++ b/sample.js
+</span><span class="p">@@ -1 +1 @@</span>
+<span class="gd">-console.log("Hello World!")
+</span><span class="gi">+console.log("Hello from Diff2Html!")
+</span></code></pre></div></div> <p>But this is difficult to read, specially if you have a large diff. You can use <a href="https://diff2html.xyz/">diff2html</a> to display a more readable version of the diff. For this, just use <code class="language-plaintext highlighter-rouge">diff2html</code> instead of <code class="language-plaintext highlighter-rouge">diff</code> for the code block language:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff2html
+</span><span class="sb">diff --git a/sample.js b/sample.js
+index 0000001..0ddf2ba
+--- a/sample.js
++++ b/sample.js
+@@ -1 +1 @@
+-console.log("Hello World!")
++console.log("Hello from Diff2Html!")</span>
+<span class="p">```</span>
+</code></pre></div></div> <p>If we use a longer example, for example <a href="https://github.com/rtfpessoa/diff2html/commit/c2c253d3e3f8b8b267f551e659f72b44ca2ac927">this commit from diff2html</a>, it will generate the following output:</p> <pre><code class="language-diff2html">From 2aaae31cc2a37bfff83430c2c914b140bee59b6a Mon Sep 17 00:00:00 2001
+From: Rodrigo Fernandes &lt;rtfrodrigo@gmail.com&gt;
+Date: Sun, 9 Oct 2016 16:41:54 +0100
+Subject: [PATCH 1/2] Initial template override support
 
-    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+---
+ scripts/hulk.js                    |  4 ++--
+ src/diff2html.js                   |  3 +--
+ src/file-list-printer.js           | 11 ++++++++---
+ src/hoganjs-utils.js               | 29 +++++++++++++++++------------
+ src/html-printer.js                |  6 ++++++
+ src/line-by-line-printer.js        |  6 +++++-
+ src/side-by-side-printer.js        |  6 +++++-
+ test/file-list-printer-tests.js    |  2 +-
+ test/hogan-cache-tests.js          | 18 +++++++++++++++---
+ test/line-by-line-tests.js         |  3 +--
+ test/side-by-side-printer-tests.js |  3 +--
+ 11 files changed, 62 insertions(+), 29 deletions(-)
 
-    <span class="na">steps</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Download the site as artifact</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/download-artifact@v2</span>
-      <span class="na">with</span><span class="pi">:</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">docs-site</span>
-        <span class="na">path</span><span class="pi">:</span> <span class="s">site</span>
+diff --git a/scripts/hulk.js b/scripts/hulk.js
+index 5a793c18..a4b1a4d5 100755
+--- a/scripts/hulk.js
++++ b/scripts/hulk.js
+@@ -173,11 +173,11 @@ function namespace(name) {
+ // write a template foreach file that matches template extension
+ templates = extractFiles(options.argv.remain)
+   .map(function(file) {
+-    var openedFile = fs.readFileSync(file, 'utf-8');
++    var openedFile = fs.readFileSync(file, 'utf-8').trim();
+     var name;
+     if (!openedFile) return;
+     name = namespace(path.basename(file).replace(/\..*$/, ''));
+-    openedFile = removeByteOrderMark(openedFile.trim());
++    openedFile = removeByteOrderMark(openedFile);
+     openedFile = wrap(file, name, openedFile);
+     if (!options.outputdir) return openedFile;
+     fs.writeFileSync(path.join(options.outputdir, name + '.js')
+diff --git a/src/diff2html.js b/src/diff2html.js
+index 21b0119e..64e138f5 100644
+--- a/src/diff2html.js
++++ b/src/diff2html.js
+@@ -7,7 +7,6 @@
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Clone xai-effector.github.io and checkout gh-pages branch</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
-      <span class="na">with</span><span class="pi">:</span>
-          <span class="na">repository</span><span class="pi">:</span> <span class="s">xai-effector/xai-effector.github.io</span>
-          <span class="na">ref</span><span class="pi">:</span> <span class="s">gh-pages</span>
-          <span class="na">token</span><span class="pi">:</span> <span class="s">$</span>
-          <span class="na">path</span><span class="pi">:</span> <span class="s">xai-effector.github.io</span>
+ (function() {
+   var diffParser = require('./diff-parser.js').DiffParser;
+-  var fileLister = require('./file-list-printer.js').FileListPrinter;
+   var htmlPrinter = require('./html-printer.js').HtmlPrinter;
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">rm old site and copy new site</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-          <span class="s">rm -rf xai-effector.github.io/*</span>
-          <span class="s">cp -r site/* xai-effector.github.io</span>
+   function Diff2Html() {
+@@ -43,7 +42,7 @@
 
-    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">commit and push</span>
-      <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
-          <span class="s">cd xai-effector.github.io</span>
-          <span class="s">git config --global user.email "ntipakos@gmail.com"</span>
-          <span class="s">git config --global user.name "ntipakos"</span>
-          <span class="s">git add .</span>
-          <span class="s">git commit -m "Update site from ntipakos/effector"</span>
-          <span class="s">git push --force origin gh-pages</span>
-</code></pre></div></div> <p>In the snippet above, we first download the artifact (the built site) from the first job. Then, we clone the <code class="language-plaintext highlighter-rouge">xai-effector/xai-effector.github.io</code> repository and specifically the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch. Note that for connecting to the <code class="language-plaintext highlighter-rouge">xai-effector</code> GitHub account, we utilize the token <code class="language-plaintext highlighter-rouge">$</code> we created before. Subsequently, we clear all existing files from the repository and copy over all files from the build site, effectively replacing the old with the new site. Finally, we commit the updated files and push them to the repository.</p> <h3 id="summary">Summary</h3> <p>There you have it! With this process, whenever a new tagged commit is made to the <code class="language-plaintext highlighter-rouge">givasile/effector</code> repository, the revised documentation will be automatically committed to the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch within the <code class="language-plaintext highlighter-rouge">xai-effector/xai-effector.github.io</code> repository. Subsequently, it will undergo automatic redeployment to <a href="https://xai-effector.github.io"><code class="language-plaintext highlighter-rouge">xai-effector.github.io</code></a>.</p> <p>The approach above is applicable in a broader context. You can substitute <code class="language-plaintext highlighter-rouge">givasile/effector</code> and <code class="language-plaintext highlighter-rouge">xai-effector/xai-effector.github.io</code> with any <code class="language-plaintext highlighter-rouge">account_1/repo_1</code> and <code class="language-plaintext highlighter-rouge">account_2/repo_2</code>, and you have a generic workflow for automatically committing the latest changes from <code class="language-plaintext highlighter-rouge">repo_1</code> to <code class="language-plaintext highlighter-rouge">repo_2</code>.</p>]]></content><author><name>Vasilis Gkolemis</name></author><category term="Dev"/><category term="PhD"/><summary type="html"><![CDATA[In this guide, we'll leverage GitHub Actions to automate the publication of the documentation for my `Python` package. The documentation needs to be first pushed to a distinct GitHub repository, which is repsponsible for serving the GitHub Pages.]]></summary></entry><entry><title type="html">Aleatoric and epistemic uncertainty in classification problems</title><link href="https://givasile.github.io/blog/2022/entropy-classification/" rel="alternate" type="text/html" title="Aleatoric and epistemic uncertainty in classification problems"/><published>2022-11-05T00:00:00+00:00</published><updated>2022-11-05T00:00:00+00:00</updated><id>https://givasile.github.io/blog/2022/entropy-classification</id><content type="html" xml:base="https://givasile.github.io/blog/2022/entropy-classification/"><![CDATA[<h2 id="uncertainty-types">Uncertainty Types</h2> <p>Machine Learning models may mispredict due to a variety of reasons. It is important to train models that know what they don’t know; to predict with uncertainty. Two specific types of uncertainty, aleatoric and epistemic, have attracted more attention since they cover two fundamental sources of mispredictions.</p> <p><strong>Aleatoric uncertainty</strong> describes the implicit variability of the data generating process, mainly due to unaccounted factors. Imagine we want to predict whether a student will pass or fail in the MSc degree from the following three attributes; the BSc grade $(x_1)$, the grade of the first MSc test $(x_2)$ and years passed from the BSc graduation $(x_3)$. With only these factors we are far from a perfect prediction. Numerous other attributes play an important role; his/her degree in each course of the BSc, his/her mental health, an unpredictable accident etc. All of them make the prediction feasible up to a specific level of (aleatoric) uncertainty.</p> <p><strong>Epistemic uncertainty</strong> describes our ignorance about a specific input; if we make a prediction for an input that is (very) different from the instances of the training set, we should also be uncertain. In the example above, lets say we want to evaluate a student with a high BSc grade that completely failed in the first MSc test, and, unfortunately, not many similar students (or none) exist at the training set. In supervised cases, as we move away from the examples of the training set, predictions are feasible up to a specific level of (epistemic) uncertainty.</p> <p>The aleatoric $\mathcal{U}_a(x)$ and the epistemic $\mathcal{U}_e(x)$ component aggregate to express the uncertainty $\mathcal{U}$ of a prediction:</p> \[\mathcal{U}(x) = \mathcal{U}_a(x) + \mathcal{U}_e(x)\] <hr/> <h2 id="mathematical-formulation">Mathematical Formulation</h2> <p>Let’s quickly set up some notation. In this post, we cover the classification case, so we want to predict the correct class $c$ out of a set of $\mathcal{C}$. We fit a parametric model $f_{\theta}: \mathbf{x} \rightarrow y$ to the training set $\mathcal{D}$. We denote the parameter configuration that fits the data best with $\hat{\theta}$ $. The output $y = 1, 2, \ldots, |\mathcal{C}|$ is the index of the predicted class. For modeling the aleatoric and the epistemic uncertainty we need two extra ingredients.</p> <p>For quantifying the aleatoric uncertainty, we need a trained model $\hat{\theta} $ that outputs a distribution $p(\mathbf{y}|\mathbf{x}, \hat{\theta} )$ over all possible classes, instead of only the winning class $y$. This means we need a probability vector $\mathbf{y}$, whose elements sum to $1$ and the $c$-th element $y_c$ is the probability of $c$, i.e., $p(y=c|\mathbf{x}, \hat{\theta} )$. For convenience, we also use $f_{\hat{\theta} }^c (\mathbf{x})$ to denote $y_c$. <strong>The probability vector $\mathbf{y}$ is the minimum requirement for quantifying the aleatoric uncertainty.</strong></p> <p>For quantifying the epistemic uncertainty, we need many models. Instead of a single model $\hat{\theta}$, we need the distribution over all parameters that describe the data well, i.e. the posterior distribution $p(\theta|\mathcal{D})$. Sometimes instead of accessing the PDF of the posterior, we need a way to sample from it: $\theta_k \sim p(\theta|\mathcal{D})$. We denote with $\tilde{\mathbf{y}}$ or $\tilde{p}(\mathbf{y}| \mathbf{x}, \mathcal{D})$ the expected prediction over the posterior distribution:</p> \[\tilde{\mathbf{y}} = \mathbb{E}_{ \theta | \mathcal{D} } [f_{\theta}(\mathbf{x})] \approx \frac{1}{K} f_{\theta_k}(\mathbf{x})\] <p><strong>Access to the posterior or a population of models is the minimum requirement for quantifying epistemic uncertainty.</strong></p> <p>Now that we know the requirements for modeling the aleatoric and the epistemic uncertainty, let’s see how entropy can be used to measure them.</p> <h2 id="entropy">Entropy</h2> <p>If we draw a sample $x_i$ from a discrete random variable $X$, the value $-\log p(x_i)$ quantifies our <strong>level of surprise</strong> or <strong>information gain</strong>. The level of surprise means how unexpected we considered the outcome. The information gain describes how much we learned after observing $x_i$. Imagine papers with written rules in a bowl. Player A draws a paper, reads the rules and designs how to offend. The other players design their defense without knowing what the paper writes. They only know that the bowl has $n_1$ papers with $\mathtt{rules_1}$, $n_2$ with $\mathtt{rules_2}$ etc. In other words, they know $p(x)$. If player A selects a rare paper, $p(x_i)$ is low, the information gain, $-\log p(x_i)$, is big because the other players have not prepared their defense for such an unexpected outcome, so player A has a big advantage. In the extreme, if the bowl contains only one set of rules, the gain is zero; the other players perfectly know what to expect.</p> <p>I prefer the intuition behind the information gain because it helps me understand why to select $-\log p(x_i)$. For example, with the level of surprise, you may wonder why not simply use $1 - p(x_i)$, which maps the surprise into an intuitive linear scale of $[0, 1]$. In general, any function $f: [0,1] \rightarrow \mathbb{R}$ that is continuously decreasing in its domain could play this role. So, why choose $-\log$? The information gain dictates that if we observe two <strong>independent</strong> random variables, $x_i \sim X$ with information gain $H(x_i)$ and $y_i \sim Y$ with information gain $H(y_i)$, we want the total gain equal the sum. It is a meaningful property; if you learn $\alpha$ from a source and $\beta$ from another and the two pieces of information do not relate to each other, you have learned a total of $\alpha + \beta$. The logarithm family is the only one supporting $H(p(x_i, y_i)) = H(p(x_i)p(y_i)) = H(x_i) + H(y_i)$, so this is why $-\log$.</p> <p>With this in mind, we can describe the entropy of a discrete distribution as the <strong>expected level of surprise</strong> or the <strong>expected information gain</strong> we will get after observing a sample:</p> <p>\begin{equation} \mathbb{H}(p(x)) = \mathbb{E}_{X} [- \log p(x)] = - \sum p(x) \log p(x) \end{equation}</p> <p>Entropy has its origins in Information Theory. For anyone interested, there are numerous excellent resources with interpretations about entropy <d-cite key="pml1Book,bishop2006pattern"></d-cite>.</p> <hr/> <h2 id="entropy-for-uncertainty">Entropy for Uncertainty</h2> <p>Here we focus on how entropy can be used to measure the uncertainty of a distribution. The concepts of surprise or information gain relate to uncertainty. The more uncertain, the more surprised I will get by the outcome or the bigger my information gain. Therefore, we can use entropy as a measure of the uncertainty of a discrete predictive distribution:</p> <p>\begin{equation} \mathbb{H}( \mathbf{y}|\mathbf{x}, \theta) = - \sum_{c \in C} p(y_c|\mathbf{x}, \theta) \log p(y_c|\mathbf{x}, \theta) \end{equation}</p> <p>Be careful with the log nature of entropy, it can be tricky. For example, in a binary classification problem, where the predictive distribution is $\mathbf{p} = (p_1, 1-p_1)$, the entropy as a function of $p_1$ is shown in the next figure.</p> <div class="row mt-3"> <div class="col-sm-8 mx-auto mt-5 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/IPML-images/entropy_binary_distribution/im_1-480.webp"/> <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/IPML-images/entropy_binary_distribution/im_1-800.webp"/> <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/IPML-images/entropy_binary_distribution/im_1-1400.webp"/> <img src="/assets/img/IPML-images/entropy_binary_distribution/im_1.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>As we can see, entropy runs fastly in the beginning and slows down later. When the model predicts that the student will pass the MSc with $70\%$, we can instantly interpret that the prediction is 30% away from being certain. Another model that predicts $85\%$ pass can be directly compared to the first because we know what these extra $15$ percentage units are; they are 15 extra units of belief if you are a Bayesian and $15/100$ extra passes of the MSc if you are a Frequentist and you can repeat the experiment many times. \</p> <p>Entropy makes such comparisons difficult due to the log scale. Entropy maps any discrete distribution to the range $[0, H_{max}]$. The maximum entropy is given when we allocate equal probability to all classes and depends on the number of classes; $H_{max} = log|\mathcal{C}|$. In the example above with maximum uncertainty equal to $H_{max} = log|\mathcal{C}|= 1$, the first prediction has $H_1=0.88$ and the second $H_2=0.61$. We know that the first prediction is more uncertain, but how much? We cannot (directly) interpret how much more certain the second model is.</p> <hr/> <h2 id="split-into-aleatoric-and-epistemic">Split into Aleatoric and Epistemic</h2> <p>Above, we considered a single model and used entropy to measure its uncertainty. In the Bayesian case, we have many models $\theta_k$ drawn from the posterior $p(\theta|\mathcal{D})$. We remind that the expected prediction is denoted with $\tilde{\mathbf{y}}$ and is computed as the mean prediction among the models, $ \tilde{\mathbf{y}} = \tilde{p}(\mathbf{y}| \mathbf{x}, \mathcal{D}) = \mathbb{E}_{\theta|\mathcal{D}} [f(\mathbf{x})] \approx \frac{1}{K} \sum_k f(\mathbf{x}) $. Entropy gives a convenient way to first compute the total uncertainty and then split it into the aleatoric and the epistemic component. The <strong>total uncertainty is the entropy of the expected prediction</strong>:</p> \[H(\mathbf{y} | \mathbf{x}, \mathcal{D}) = - \sum_{c \in \mathcal{C}} \tilde{p}(y_c | \mathbf{x}, \mathcal{D}) \log \tilde{p}(y_c | \mathbf{x}, \mathcal{D})\] <p>The aleatoric component is the <strong>expected entropy over the entropy of each separate model</strong> $\mathbb{E}_{\theta|\mathcal{D}}[H(\mathbf{y}|\mathbf{x}, \theta)]$:</p> \[H_a(\mathbf{y} | \mathbf{x}, \mathcal{D}) = \mathbb{E}_{\theta|\mathcal{D}}[H(\mathbf{y}|\mathbf{x}, \theta)] \approx \frac{1}{K} \sum_k H(\mathbf{y}| \mathbf{x}, \theta_k)\] <p>It is not obvious, but it always holds that $H(\mathbf{y} | \mathbf{x}, \mathcal{D}) &gt; H_a(\mathbf{y} | \mathbf{x}, \mathcal{D})$. The epistemic component is the remainder, $H_e(\mathbf{y} | \mathbf{x}, \mathcal{D}) = H(\mathbf{y} | \mathbf{x}, \mathcal{D}) - H_a(\mathbf{y} | \mathbf{x}, \mathcal{D})$. And, finally, we reached the very convenient form:</p> \[H = H_a + H_e\] <p>To get some intuition for the equations above, let’s see what happens in a simple binary classification example with two models sampled from the posterior. We freeze the expected prediction to $\mathbf{p} = (p_1, 1 - p_1)$, which is the average of model 1 with $\mathbf{p}^{(1)} = (p_1 - \Delta p, 1 - p_1 + \Delta p)$ and model 2 with $\mathbf{p}^{(2)} = (p_1 + \Delta p, 1 - p_1 - \Delta p)$. We change the value of $\Delta p$ to see how aleatoric and epistemic uncertainty behave.</p> <p>Some intuition. Firstly, we expect that the total uncertainty remains constant; it is the entropy of the frozen expected prediction. We also expect that when $\Delta p = 0$, the two models perfectly match $\mathbf{p} = \mathbf{p}^{(1)} = \mathbf{p}^{(2)} = (p_1, 1 - p_1)$, so the epistemic component is zero and all the uncertainty comes from the aleatoric component. As $\Delta p$ increases, the aleatoric component (which is the mean entropy between the two models) lessens, giving space to the epistemic.</p> <p>The figure below illustrates the evolution of the aleatoric and the epistemic components as $\Delta p$ grows, for $\mathbf{p} = (p_1=0.3, p_2=0.7)$.</p> <div class="row mt-3"> <div class="col-sm-8 mx-auto mt-5 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/IPML-images/entropy_binary_ensemble/gif_1.gif-480.webp"/> <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/IPML-images/entropy_binary_ensemble/gif_1.gif-800.webp"/> <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/IPML-images/entropy_binary_ensemble/gif_1.gif-1400.webp"/> <img src="/assets/img/IPML-images/entropy_binary_ensemble/gif_1.gif" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>The same evolution for an average prediction of $\mathbf{p} = (p_1=0.5, p_2=0.5)$.</p> <div class="row mt-3"> <div class="col-sm-8 mx-auto mt-5 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/IPML-images/entropy_binary_ensemble/gif_2.gif-480.webp"/> <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/IPML-images/entropy_binary_ensemble/gif_2.gif-800.webp"/> <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/IPML-images/entropy_binary_ensemble/gif_2.gif-1400.webp"/> <img src="/assets/img/IPML-images/entropy_binary_ensemble/gif_2.gif" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>And a table with numbers for $\mathbf{p} = (p_1=0.8, p_2=0.2)$.</p> <table> <thead> <tr> <th style="text-align: center">$\mathbf{p^{(1)}}$</th> <th style="text-align: center">$H_1$</th> <th style="text-align: center">$\mathbf{p^{(2)}}$</th> <th style="text-align: center">$H_2$</th> <th style="text-align: center">$\mathbf{p}$</th> <th style="text-align: center">$H$</th> <th style="text-align: center">$H_a$</th> <th style="text-align: center">$H_e$</th> </tr> </thead> <tbody> <tr> <td style="text-align: center">$(0.8, 0.2)$</td> <td style="text-align: center">$0.72$</td> <td style="text-align: center">$(0.8, 0.2)$</td> <td style="text-align: center">$0.72$</td> <td style="text-align: center">$(0.8, 0.2)$</td> <td style="text-align: center">$0.72$</td> <td style="text-align: center">$0.72 \; (100\%)$</td> <td style="text-align: center">$0 \; (0\%)$</td> </tr> <tr> <td style="text-align: center">$(0.85, 0.15)$</td> <td style="text-align: center">$0.61$</td> <td style="text-align: center">$(0.75, 0.15)$</td> <td style="text-align: center">$0.81$</td> <td style="text-align: center">$(0.8, 0.2)$</td> <td style="text-align: center">$0.72$</td> <td style="text-align: center">$0.71 \; (98.43\%)$</td> <td style="text-align: center">$0.01 \; (1.57\%)$</td> </tr> <tr> <td style="text-align: center">$(0.9, 0.1)$</td> <td style="text-align: center">$0.47$</td> <td style="text-align: center">$(0.7, 0.3)$</td> <td style="text-align: center">$0.88$</td> <td style="text-align: center">$(0.8, 0.2)$</td> <td style="text-align: center">$0.72$</td> <td style="text-align: center">$0.68 \; (93.52\%)$</td> <td style="text-align: center">$0.05 \; (6.48\%)$</td> </tr> <tr> <td style="text-align: center">$(0.95, 0.05)$</td> <td style="text-align: center">$0.29$</td> <td style="text-align: center">$(0.65, 0.35)$</td> <td style="text-align: center">$0.93$</td> <td style="text-align: center">$(0.8, 0.2)$</td> <td style="text-align: center">$0.72$</td> <td style="text-align: center">$0.61 \; (84.53\%)$</td> <td style="text-align: center">$0.11 \; (15.47\%)$</td> </tr> <tr> <td style="text-align: center">$(1, 0)$</td> <td style="text-align: center">$0$</td> <td style="text-align: center">$(0.6, 0.4)$</td> <td style="text-align: center">$0.97$</td> <td style="text-align: center">$(0.8, 0.2)$</td> <td style="text-align: center">$0.72$</td> <td style="text-align: center">$0.49 \; (67.2\%)$</td> <td style="text-align: center">$0.24 \; (32.75\%)$</td> </tr> </tbody> </table> <p>We observe that due to the log nature of entropy, it is difficult to interpret aleatoric and epistemic uncertainties as absolute values or as percentages of the total uncertainty. If somebody tells you that the total uncertainty in a binary classification problem is $H = 0.72$, you don’t exactly understand how uncertain the final prediction is, even though you can compute that in binary problems $H_{max} = \log|\mathcal{C}| = 1$. If (s)he continues, that out of $H=0.72$, the aleatoric uncertainty is $H_a=0.61$ ($84.53\%$ of $H$) and the epistemic $H_e=0.11$ ($15.47\%$ of $H$), you can understand that models agree ($H_e$ is small) and most of the uncertainty is because of the aleatoric component. All these would be much clearer if you simply inspect the individual model predictions, $p^{(1)} = (0.95, 0.05)$ and $p^{(2)} = (0.65, 0.35)$. You could then understand that even though they both vote for option 1, they significantly disagree on how certain they are, information that is not that clear by just viewing $H_e = 15.47\%$ of $H$. But, inspecting all different model predictions one by one is not easy if you have many models or the whole posterior distribution. In these cases, entropy provides a convenient summary statistic that respects $H = H_e + H_a$.</p> <hr/> <h2 id="conclusion">Conclusion</h2> <p>Entropy maps any categorical distribution to three summary statistics; the aleatoric $H_a$, the epistemic $H_e$ and the total uncertainty $H = H_a + H_e$. It simply requires samples from the posterior distribution $\theta_k \sim p(\theta | \mathcal{D})$ and access to the model $f_\theta(\mathbf{x})$.</p> <p>The range of uncertainties is $[0, H_{max}]$; $H = 0$ means no-uncertainty, $H = H_{max}$<d-footnote>$H_{max}$ is easily computed by $\log |\mathcal{C}|$, where $|\mathcal{C}|$ is the number of classes in the classification problem.</d-footnote> means maximum uncertainty and for the internal values it holds that for $H_1 &gt; H_2$ then the prediction $1$ is more uncertain than the prediction $2$.</p> <p>Choosing whether to trust the prediction, can be easily decided based on the <strong>epistemic entropy</strong>. Check the following table:</p> <table> <thead> <tr> <th style="text-align: left">$H_a$</th> <th style="text-align: left">$H_e$</th> <th style="text-align: center">Take-away</th> <th style="text-align: center">Interpretation</th> </tr> </thead> <tbody> <tr> <td style="text-align: left">low</td> <td style="text-align: left">low</td> <td style="text-align: center">Trust the certain prediction</td> <td style="text-align: center">Models agree on a certain prediction</td> </tr> <tr> <td style="text-align: left">high</td> <td style="text-align: left">low</td> <td style="text-align: center">Trust the uncertain prediction</td> <td style="text-align: center">Model aggree that they can predict with some uncertainty.</td> </tr> <tr> <td style="text-align: left">low</td> <td style="text-align: left">high</td> <td style="text-align: center">Don’t trust the prediction</td> <td style="text-align: center">The input is away from the training data manifold.</td> </tr> <tr> <td style="text-align: left">high</td> <td style="text-align: left">high</td> <td style="text-align: center">Don’t trust the prediction</td> <td style="text-align: center">The input is away from the training data manifold.</td> </tr> </tbody> </table> <p>If $H_e$ is small, models agree so we can trust their outcome; if they are all certain, we can follow the prediction if they are all uncertain, we know that we are on an edge case where the features do not provide enough information to separate the classes. If $H_e$ is big, you cannot trust the prediction, because the models have not seen similar inputs on the training set.</p> <h3 id="disadvantages">Disadvantages</h3> <p>The table above is very helpful. But what is low and what is high? It is difficult to provide a specific number. For binary problems, if $0 \leq H \leq 0.2 * H_{max}$, the prediction is very certain (close to $95\% - 5\%$). Unfortunately, It is even more difficult to define a threshold for a high or a low epistemic entropy. For these reasons, even though $H_e$ and $H_a$ are helpful for a quick interpretation, we need to check more summary statistics for a detailed understanding of the uncertainty of a Bayesian prediction.</p>]]></content><author><name>Vasilis Gkolemis</name></author><category term="IPML"/><category term="PhD"/><summary type="html"><![CDATA[Discuss how categorical entropy can be used to quantify the aleatoric and epistemic uncertainty in Bayesian modeling.]]></summary></entry></feed>
+     var fileList = '';
+     if (configOrEmpty.showFiles === true) {
+-      fileList = fileLister.generateFileList(diffJson, configOrEmpty);
++      fileList = htmlPrinter.generateFileListSummary(diffJson, configOrEmpty);
+     }
+
+     var diffOutput = '';
+diff --git a/src/file-list-printer.js b/src/file-list-printer.js
+index e408d9b2..1e0a2c61 100644
+--- a/src/file-list-printer.js
++++ b/src/file-list-printer.js
+@@ -8,11 +8,16 @@
+ (function() {
+   var printerUtils = require('./printer-utils.js').PrinterUtils;
+
+-  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
++  var hoganUtils;
++
+   var baseTemplatesPath = 'file-summary';
+   var iconsBaseTemplatesPath = 'icon';
+
+-  function FileListPrinter() {
++  function FileListPrinter(config) {
++    this.config = config;
++
++    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
++    hoganUtils = new HoganJsUtils(config);
+   }
+
+   FileListPrinter.prototype.generateFileList = function(diffFiles) {
+@@ -38,5 +43,5 @@
+     });
+   };
+
+-  module.exports.FileListPrinter = new FileListPrinter();
++  module.exports.FileListPrinter = FileListPrinter;
+ })();
+diff --git a/src/hoganjs-utils.js b/src/hoganjs-utils.js
+index 9949e5fa..0dda08d7 100644
+--- a/src/hoganjs-utils.js
++++ b/src/hoganjs-utils.js
+@@ -8,18 +8,19 @@
+ (function() {
+   var fs = require('fs');
+   var path = require('path');
+-
+   var hogan = require('hogan.js');
+
+   var hoganTemplates = require('./templates/diff2html-templates.js');
+
+-  var templatesPath = path.resolve(__dirname, 'templates');
++  var extraTemplates;
+
+-  function HoganJsUtils() {
++  function HoganJsUtils(configuration) {
++    this.config = configuration || {};
++    extraTemplates = this.config.templates || {};
+   }
+
+-  HoganJsUtils.prototype.render = function(namespace, view, params, configuration) {
+-    var template = this.template(namespace, view, configuration);
++  HoganJsUtils.prototype.render = function(namespace, view, params) {
++    var template = this.template(namespace, view);
+     if (template) {
+       return template.render(params);
+     }
+@@ -27,17 +28,16 @@
+     return null;
+   };
+
+-  HoganJsUtils.prototype.template = function(namespace, view, configuration) {
+-    var config = configuration || {};
++  HoganJsUtils.prototype.template = function(namespace, view) {
+     var templateKey = this._templateKey(namespace, view);
+
+-    return this._getTemplate(templateKey, config);
++    return this._getTemplate(templateKey);
+   };
+
+-  HoganJsUtils.prototype._getTemplate = function(templateKey, config) {
++  HoganJsUtils.prototype._getTemplate = function(templateKey) {
+     var template;
+
+-    if (!config.noCache) {
++    if (!this.config.noCache) {
+       template = this._readFromCache(templateKey);
+     }
+
+@@ -53,6 +53,7 @@
+
+     try {
+       if (fs.readFileSync) {
++        var templatesPath = path.resolve(__dirname, 'templates');
+         var templatePath = path.join(templatesPath, templateKey);
+         var templateContent = fs.readFileSync(templatePath + '.mustache', 'utf8');
+         template = hogan.compile(templateContent);
+@@ -66,12 +67,16 @@
+   };
+
+   HoganJsUtils.prototype._readFromCache = function(templateKey) {
+-    return hoganTemplates[templateKey];
++    return extraTemplates[templateKey] || hoganTemplates[templateKey];
+   };
+
+   HoganJsUtils.prototype._templateKey = function(namespace, view) {
+     return namespace + '-' + view;
+   };
+
+-  module.exports.HoganJsUtils = new HoganJsUtils();
++  HoganJsUtils.prototype.compile = function(templateStr) {
++    return hogan.compile(templateStr);
++  };
++
++  module.exports.HoganJsUtils = HoganJsUtils;
+ })();
+diff --git a/src/html-printer.js b/src/html-printer.js
+index 585d5b66..13f83047 100644
+--- a/src/html-printer.js
++++ b/src/html-printer.js
+@@ -8,6 +8,7 @@
+ (function() {
+   var LineByLinePrinter = require('./line-by-line-printer.js').LineByLinePrinter;
+   var SideBySidePrinter = require('./side-by-side-printer.js').SideBySidePrinter;
++  var FileListPrinter = require('./file-list-printer.js').FileListPrinter;
+
+   function HtmlPrinter() {
+   }
+@@ -22,5 +23,10 @@
+     return sideBySidePrinter.generateSideBySideJsonHtml(diffFiles);
+   };
+
++  HtmlPrinter.prototype.generateFileListSummary = function(diffJson, config) {
++    var fileListPrinter = new FileListPrinter(config);
++    return fileListPrinter.generateFileList(diffJson);
++  };
++
+   module.exports.HtmlPrinter = new HtmlPrinter();
+ })();
+diff --git a/src/line-by-line-printer.js b/src/line-by-line-printer.js
+index b07eb53c..d230bedd 100644
+--- a/src/line-by-line-printer.js
++++ b/src/line-by-line-printer.js
+@@ -11,7 +11,8 @@
+   var utils = require('./utils.js').Utils;
+   var Rematch = require('./rematch.js').Rematch;
+
+-  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
++  var hoganUtils;
++
+   var genericTemplatesPath = 'generic';
+   var baseTemplatesPath = 'line-by-line';
+   var iconsBaseTemplatesPath = 'icon';
+@@ -19,6 +20,9 @@
+
+   function LineByLinePrinter(config) {
+     this.config = config;
++
++    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
++    hoganUtils = new HoganJsUtils(config);
+   }
+
+   LineByLinePrinter.prototype.makeFileDiffHtml = function(file, diffs) {
+diff --git a/src/side-by-side-printer.js b/src/side-by-side-printer.js
+index bbf1dc8d..5e3033b3 100644
+--- a/src/side-by-side-printer.js
++++ b/src/side-by-side-printer.js
+@@ -11,7 +11,8 @@
+   var utils = require('./utils.js').Utils;
+   var Rematch = require('./rematch.js').Rematch;
+
+-  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
++  var hoganUtils;
++
+   var genericTemplatesPath = 'generic';
+   var baseTemplatesPath = 'side-by-side';
+   var iconsBaseTemplatesPath = 'icon';
+@@ -26,6 +27,9 @@
+
+   function SideBySidePrinter(config) {
+     this.config = config;
++
++    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
++    hoganUtils = new HoganJsUtils(config);
+   }
+
+   SideBySidePrinter.prototype.makeDiffHtml = function(file, diffs) {
+diff --git a/test/file-list-printer-tests.js b/test/file-list-printer-tests.js
+index a502a46f..60ea3208 100644
+--- a/test/file-list-printer-tests.js
++++ b/test/file-list-printer-tests.js
+@@ -1,6 +1,6 @@
+ var assert = require('assert');
+
+-var fileListPrinter = require('../src/file-list-printer.js').FileListPrinter;
++var fileListPrinter = new (require('../src/file-list-printer.js').FileListPrinter)();
+
+ describe('FileListPrinter', function() {
+   describe('generateFileList', function() {
+diff --git a/test/hogan-cache-tests.js b/test/hogan-cache-tests.js
+index 190bf6f8..3bb754ac 100644
+--- a/test/hogan-cache-tests.js
++++ b/test/hogan-cache-tests.js
+@@ -1,6 +1,6 @@
+ var assert = require('assert');
+
+-var HoganJsUtils = require('../src/hoganjs-utils.js').HoganJsUtils;
++var HoganJsUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)();
+ var diffParser = require('../src/diff-parser.js').DiffParser;
+
+ describe('HoganJsUtils', function() {
+@@ -21,16 +21,28 @@ describe('HoganJsUtils', function() {
+       });
+       assert.equal(emptyDiffHtml, result);
+     });
++
+     it('should render view without cache', function() {
+       var result = HoganJsUtils.render('generic', 'empty-diff', {
+         contentClass: 'd2h-code-line',
+         diffParser: diffParser
+       }, {noCache: true});
+-      assert.equal(emptyDiffHtml + '\n', result);
++      assert.equal(emptyDiffHtml, result);
+     });
++
+     it('should return null if template is missing', function() {
+-      var result = HoganJsUtils.render('generic', 'missing-template', {}, {noCache: true});
++      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)({noCache: true});
++      var result = hoganUtils.render('generic', 'missing-template', {});
+       assert.equal(null, result);
+     });
++
++    it('should allow templates to be overridden', function() {
++      var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
++
++      var config = {templates: {'generic-empty-diff': emptyDiffTemplate}};
++      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
++      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
++      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
++    });
+   });
+ });
+diff --git a/test/line-by-line-tests.js b/test/line-by-line-tests.js
+index 1cd92073..8869b3df 100644
+--- a/test/line-by-line-tests.js
++++ b/test/line-by-line-tests.js
+@@ -14,7 +14,7 @@ describe('LineByLinePrinter', function() {
+         '            File without changes\n' +
+         '        &lt;/div&gt;\n' +
+         '    &lt;/td&gt;\n' +
+-        '&lt;/tr&gt;\n';
++        '&lt;/tr&gt;';
+
+       assert.equal(expected, fileHtml);
+     });
+@@ -422,7 +422,6 @@ describe('LineByLinePrinter', function() {
+         '        &lt;/div&gt;\n' +
+         '    &lt;/td&gt;\n' +
+         '&lt;/tr&gt;\n' +
+-        '\n' +
+         '                &lt;/tbody&gt;\n' +
+         '            &lt;/table&gt;\n' +
+         '        &lt;/div&gt;\n' +
+diff --git a/test/side-by-side-printer-tests.js b/test/side-by-side-printer-tests.js
+index 76625f8e..771daaa5 100644
+--- a/test/side-by-side-printer-tests.js
++++ b/test/side-by-side-printer-tests.js
+@@ -14,7 +14,7 @@ describe('SideBySidePrinter', function() {
+         '            File without changes\n' +
+         '        &lt;/div&gt;\n' +
+         '    &lt;/td&gt;\n' +
+-        '&lt;/tr&gt;\n';
++        '&lt;/tr&gt;';
+
+       assert.equal(expectedRight, fileHtml.right);
+       assert.equal(expectedLeft, fileHtml.left);
+@@ -324,7 +324,6 @@ describe('SideBySidePrinter', function() {
+         '        &lt;/div&gt;\n' +
+         '    &lt;/td&gt;\n' +
+         '&lt;/tr&gt;\n' +
+-        '\n' +
+         '                    &lt;/tbody&gt;\n' +
+         '                &lt;/table&gt;\n' +
+         '            &lt;/div&gt;\n' +
+
+From f3cadb96677d0eb82fc2752dc3ffbf35ca9b5bdb Mon Sep 17 00:00:00 2001
+From: Rodrigo Fernandes &lt;rtfrodrigo@gmail.com&gt;
+Date: Sat, 15 Oct 2016 13:21:22 +0100
+Subject: [PATCH 2/2] Allow uncompiled templates
+
+---
+ README.md                 |  3 +++
+ src/hoganjs-utils.js      |  7 +++++++
+ test/hogan-cache-tests.js | 24 +++++++++++++++++++++++-
+ 3 files changed, 33 insertions(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index 132c8a28..46909f25 100644
+--- a/README.md
++++ b/README.md
+@@ -98,6 +98,9 @@ The HTML output accepts a Javascript object with configuration. Possible options
+   - `synchronisedScroll`: scroll both panes in side-by-side mode: `true` or `false`, default is `false`
+   - `matchWordsThreshold`: similarity threshold for word matching, default is 0.25
+   - `matchingMaxComparisons`: perform at most this much comparisons for line matching a block of changes, default is `2500`
++  - `templates`: object with previously compiled templates to replace parts of the html
++  - `rawTemplates`: object with raw not compiled templates to replace parts of the html
++  &gt; For more information regarding the possible templates look into [src/templates](https://github.com/rtfpessoa/diff2html/tree/master/src/templates)
+
+ ## Diff2HtmlUI Helper
+
+diff --git a/src/hoganjs-utils.js b/src/hoganjs-utils.js
+index 0dda08d7..b2e9c275 100644
+--- a/src/hoganjs-utils.js
++++ b/src/hoganjs-utils.js
+@@ -17,6 +17,13 @@
+   function HoganJsUtils(configuration) {
+     this.config = configuration || {};
+     extraTemplates = this.config.templates || {};
++
++    var rawTemplates = this.config.rawTemplates || {};
++    for (var templateName in rawTemplates) {
++      if (rawTemplates.hasOwnProperty(templateName)) {
++        if (!extraTemplates[templateName]) extraTemplates[templateName] = this.compile(rawTemplates[templateName]);
++      }
++    }
+   }
+
+   HoganJsUtils.prototype.render = function(namespace, view, params) {
+diff --git a/test/hogan-cache-tests.js b/test/hogan-cache-tests.js
+index 3bb754ac..a34839c0 100644
+--- a/test/hogan-cache-tests.js
++++ b/test/hogan-cache-tests.js
+@@ -36,7 +36,7 @@ describe('HoganJsUtils', function() {
+       assert.equal(null, result);
+     });
+
+-    it('should allow templates to be overridden', function() {
++    it('should allow templates to be overridden with compiled templates', function() {
+       var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
+
+       var config = {templates: {'generic-empty-diff': emptyDiffTemplate}};
+@@ -44,5 +44,27 @@ describe('HoganJsUtils', function() {
+       var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
+       assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
+     });
++
++    it('should allow templates to be overridden with uncompiled templates', function() {
++      var emptyDiffTemplate = '&lt;p&gt;&lt;/p&gt;';
++
++      var config = {rawTemplates: {'generic-empty-diff': emptyDiffTemplate}};
++      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
++      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
++      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
++    });
++
++    it('should allow templates to be overridden giving priority to compiled templates', function() {
++      var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
++      var emptyDiffTemplateUncompiled = '&lt;p&gt;Not used!&lt;/p&gt;';
++
++      var config = {
++        templates: {'generic-empty-diff': emptyDiffTemplate},
++        rawTemplates: {'generic-empty-diff': emptyDiffTemplateUncompiled}
++      };
++      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
++      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
++      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
++    });
+   });
+ });
+</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is how you can display code diffs]]></summary></entry><entry><title type="html">a post with advanced image components</title><link href="https://alshedivat.github.io/al-folio/blog/2024/advanced-images/" rel="alternate" type="text/html" title="a post with advanced image components"/><published>2024-01-27T11:46:00+00:00</published><updated>2024-01-27T11:46:00+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/advanced-images</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/advanced-images/"><![CDATA[<p>This is an example post with advanced image components.</p> <h2 id="image-slider">Image Slider</h2> <p>This is a simple image slider. It uses the <a href="https://swiperjs.com/">Swiper</a> library. Check the <a href="https://swiperjs.com/demos">examples page</a> for more information of what you can achieve with it.</p> <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true"> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/al-folio/assets/img/9.jpg" sizes="95vw"/> <img src="/al-folio/assets/img/9.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/al-folio/assets/img/7.jpg" sizes="95vw"/> <img src="/al-folio/assets/img/7.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/al-folio/assets/img/8.jpg" sizes="95vw"/> <img src="/al-folio/assets/img/8.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/al-folio/assets/img/10.jpg" sizes="95vw"/> <img src="/al-folio/assets/img/10.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/al-folio/assets/img/12.jpg" sizes="95vw"/> <img src="/al-folio/assets/img/12.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> </swiper-container> <h2 id="image-comparison-slider">Image Comparison Slider</h2> <p>This is a simple image comparison slider. It uses the <a href="https://img-comparison-slider.sneas.io/">img-comparison-slider</a> library. Check the <a href="https://img-comparison-slider.sneas.io/examples.html">examples page</a> for more information of what you can achieve with it.</p> <img-comparison-slider> <figure slot="first"> <picture> <source class="responsive-img-srcset" srcset="/al-folio/assets/img/prof_pic.jpg" sizes="95vw"/> <img src="/al-folio/assets/img/prof_pic.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> <figure slot="second"> <picture> <source class="responsive-img-srcset" srcset="/al-folio/assets/img/prof_pic_color.png" sizes="95vw"/> <img src="/al-folio/assets/img/prof_pic_color.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </img-comparison-slider>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="images"/><summary type="html"><![CDATA[this is what advanced image components could look like]]></summary></entry><entry><title type="html">a post with vega lite</title><link href="https://alshedivat.github.io/al-folio/blog/2024/vega-lite/" rel="alternate" type="text/html" title="a post with vega lite"/><published>2024-01-27T00:20:00+00:00</published><updated>2024-01-27T00:20:00+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/vega-lite</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/vega-lite/"><![CDATA[<p>This is an example post with some <a href="https://vega.github.io/vega-lite/">vega lite</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">vega_lite
+</span><span class="sb">{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A dot plot showing each movie in the database, and the difference from the average movie rating. The display is sorted by year to visualize everything in sequential order. The graph is for all Movies before 2019.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vega/vega/main/docs/data/movies.json"
+  },
+  "transform": [
+    {"filter": "datum['IMDB Rating'] != null"},
+    {"filter": {"timeUnit": "year", "field": "Release Date", "range": [null, 2019]}},
+    {
+      "joinaggregate": [{
+        "op": "mean",
+        "field": "IMDB Rating",
+        "as": "AverageRating"
+      }]
+    },
+    {
+      "calculate": "datum['IMDB Rating'] - datum.AverageRating",
+      "as": "RatingDelta"
+    }
+  ],
+  "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "Release Date",
+      "type": "temporal"
+    },
+    "y": {
+      "field": "RatingDelta",
+      "type": "quantitative",
+      "title": "Rating Delta"
+    },
+    "color": {
+      "field": "RatingDelta",
+      "type": "quantitative",
+      "scale": {"domainMid": 0},
+      "title": "Rating Delta"
+    }
+  }
+}</span>
+<span class="p">```</span>
+</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-vega_lite">{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A dot plot showing each movie in the database, and the difference from the average movie rating. The display is sorted by year to visualize everything in sequential order. The graph is for all Movies before 2019.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vega/vega/main/docs/data/movies.json"
+  },
+  "transform": [
+    {"filter": "datum['IMDB Rating'] != null"},
+    {"filter": {"timeUnit": "year", "field": "Release Date", "range": [null, 2019]}},
+    {
+      "joinaggregate": [{
+        "op": "mean",
+        "field": "IMDB Rating",
+        "as": "AverageRating"
+      }]
+    },
+    {
+      "calculate": "datum['IMDB Rating'] - datum.AverageRating",
+      "as": "RatingDelta"
+    }
+  ],
+  "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "Release Date",
+      "type": "temporal"
+    },
+    "y": {
+      "field": "RatingDelta",
+      "type": "quantitative",
+      "title": "Rating Delta"
+    },
+    "color": {
+      "field": "RatingDelta",
+      "type": "quantitative",
+      "scale": {"domainMid": 0},
+      "title": "Rating Delta"
+    }
+  }
+}
+</code></pre> <p>This plot supports both light and dark themes.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included vega lite code could look like]]></summary></entry><entry><title type="html">a post with geojson</title><link href="https://alshedivat.github.io/al-folio/blog/2024/geojson-map/" rel="alternate" type="text/html" title="a post with geojson"/><published>2024-01-26T17:57:00+00:00</published><updated>2024-01-26T17:57:00+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/geojson-map</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/geojson-map/"><![CDATA[<p>This is an example post with some <a href="https://geojson.org/">geojson</a> code. The support is provided thanks to <a href="https://leafletjs.com/">Leaflet</a>. To create your own visualization, go to <a href="https://geojson.io/">geojson.io</a>.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">geojson
+</span><span class="sb">{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -60.11363029935569,
+              -2.904625022183211
+            ],
+            [
+              -60.11363029935569,
+              -3.162613728707967
+            ],
+            [
+              -59.820894493858034,
+              -3.162613728707967
+            ],
+            [
+              -59.820894493858034,
+              -2.904625022183211
+            ],
+            [
+              -60.11363029935569,
+              -2.904625022183211
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    }
+  ]
+}</span>
+<span class="p">```</span>
+</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-geojson">{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -60.11363029935569,
+              -2.904625022183211
+            ],
+            [
+              -60.11363029935569,
+              -3.162613728707967
+            ],
+            [
+              -59.820894493858034,
+              -3.162613728707967
+            ],
+            [
+              -59.820894493858034,
+              -2.904625022183211
+            ],
+            [
+              -60.11363029935569,
+              -2.904625022183211
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    }
+  ]
+}
+</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><category term="maps"/><summary type="html"><![CDATA[this is what included geojson code could look like]]></summary></entry><entry><title type="html">a post with echarts</title><link href="https://alshedivat.github.io/al-folio/blog/2024/echarts/" rel="alternate" type="text/html" title="a post with echarts"/><published>2024-01-26T16:03:00+00:00</published><updated>2024-01-26T16:03:00+00:00</updated><id>https://alshedivat.github.io/al-folio/blog/2024/echarts</id><content type="html" xml:base="https://alshedivat.github.io/al-folio/blog/2024/echarts/"><![CDATA[<p>This is an example post with some <a href="https://echarts.apache.org/">echarts</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">echarts
+</span><span class="sb">{
+  "title": {
+    "text": "ECharts Getting Started Example"
+  },
+  "responsive": true,
+  "tooltip": {},
+  "legend": {
+    "top": "30px",
+    "data": ["sales"]
+  },
+  "xAxis": {
+    "data": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
+  },
+  "yAxis": {},
+  "series": [
+    {
+      "name": "sales",
+      "type": "bar",
+      "data": [5, 20, 36, 10, 10, 20]
+    }
+  ]
+}</span>
+<span class="p">```</span>
+</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-echarts">{
+  "title": {
+    "text": "ECharts Getting Started Example"
+  },
+  "responsive": true,
+  "tooltip": {},
+  "legend": {
+    "top": "30px",
+    "data": ["sales"]
+  },
+  "xAxis": {
+    "data": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
+  },
+  "yAxis": {},
+  "series": [
+    {
+      "name": "sales",
+      "type": "bar",
+      "data": [5, 20, 36, 10, 10, 20]
+    }
+  ]
+}
+</code></pre> <p>Note that this library offer support for both light and dark themes. You can switch between them using the theme switcher in the top right corner of the page.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included echarts code could look like]]></summary></entry></feed>
