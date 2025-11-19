@@ -10,4 +10,7 @@ Gemfile.lock
 assets/libs/
 node_modules/
 vendor
+.ideaGemfile.lock
+
 .idea
+.emacs-desktop

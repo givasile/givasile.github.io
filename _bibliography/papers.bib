@@ -1,115 +1,136 @@
----
----
-
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
+% ============================
+%  2025 Publications
+% ============================
+@article{gkolemis25r2omc,
+  title={Fast and Robust Simulation-Based Inference With Optimization Monte Carlo},
+  author={Gkolemis Vasilis and Diou Christos and Gutmann Michael},
+  journal={arXiv preprint arXiv:2511.13394},
+  year={2025},
+  abbr={R2OMC},
+  selected = {true},
+  pdf = {gkolemis25_r2omc.pdf},
+  bibtex_show = {true},
+  arxiv = {2511.13394},
+  code = {https://github.com/givasile/lfi},
+  abstract = {Bayesian parameter inference for complex stochastic simulators is challenging due to intractable likelihood functions. Existing simulation-based inference methods often require large number of simulations and become costly to use in high-dimensional parameter spaces or in problems with partially uninformative outputs. We propose a new method for differentiable simulators that delivers accurate posterior inference with substantially reduced runtimes. Building on the Optimization Monte Carlo framework, our approach reformulates stochastic simulation as deterministic optimization problems. Gradient-based methods are then applied to efficiently navigate toward high-density posterior regions and avoid wasteful simulations in low-probability areas. A JAX-based implementation further enhances the performance through vectorization of key method components. Extensive experiments, including high-dimensional parameter spaces, uninformative outputs, multiple observations and multimodal posteriors show that our method consistently matches, and often exceeds, the accuracy of state-of-the-art approaches, while reducing the runtime by a substantial margin.}
 }
 
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
+
+@inproceedings{didrich2025learning,
+  title={Learning to Accelerate: Tuning Data Transfer Parameters},
+  author={Didrich, Benedikt and Gavriliidis, Haralampos and Gkolemis, Vasilis and Boehm, Matthias and Markl, Volker},
+  journal={Proceedings of the VLDB Endowment. ISSN},
+  booktitle= {VLDB @ AIDB Workshop},
+  year={2025},
+  abbr={Data-ML},
+  selected = {true},
+  pdf = {gkolemis25_aidb.pdf},
+  bibtex_show = {true},
+  arxiv = {2404.02629},
+  abstract = {Efficient data transfer is crucial for modern distributed systems, but performance depends heavily on well-tuned transfer parameters. Optimizing these parameters is challenging due to the large search space and dynamic system conditions. Manual tuning is impractical, and existing heuristic methods lack sufficient adaptability. Suboptimal configurations can significantly degrade performance in data-intensive applications, highlighting the need for tuning strategies that adapt to their environment. In this paper, we introduce Adapt as a data-driven approach for automatically tuning data transfer parameters. Our framework employs an ensemble cost model with dynamic weights that combine prior knowledge and online observations, as well as an efficient two-phase exploration strategy for finding high-performing configurations. Our experiments show that Adapt outperforms both the existing heuristic optimizer and standard black-box baselines, achieving up to 34% higher throughput in 42% less time. Adapt also robustly adapts to changing environments, demonstrating the effectiveness of MLbased tuning in real-world data transfer scenarios.}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
+% ============================
+%  2024 Publications
+% ============================
+@article{gkolemis2024effector,
+  title={Effector: A Python package for regional explanations},
+  author={Gkolemis, Vasilis and Diou, Christos and Ntoutsi, Eirini and Dalamagas, Theodore and Bischl, Bernd and Herbinger, Julia and Casalicchio, Giuseppe},
+  journal={arXiv preprint arXiv:2404.02629},
+  year={2024},
+  abbr={Effector},
+  selected = {true},
+  pdf = {gkolemis23_effector.pdf},
+  code = {https://github.com/givasile/effector},
+  bibtex_show = {true},
+  arxiv = {2404.02629},
+  abstract = {Global feature effect methods explain a model outputting one plot per feature. The plot shows the average effect of the feature on the output, like the effect of age on the annual income. However, average effects may be misleading when derived from local effects that are heterogeneous, i.e., they significantly deviate from the average. To decrease the heterogeneity, regional effects provide multiple plots per feature, each representing the average effect within a specific subspace. For interpretability, subspaces are defined as hyperrectangles defined by a chain of logical rules, like age’s effect on annual income separately for males and females and different levels of professional experience. We introduce Effector, a Python library dedicated to regional feature effects. Effector implements well-established global effect methods, assesses the heterogeneity of each method and, based on that, provides regional effects. Effector automatically detects subspaces where regional effects have reduced heterogeneity. All global and regional effect methods share a common API, facilitating comparisons between them. Moreover, the library’s interface is extensible so new methods can be easily added and benchmarked. The library has been thoroughly tested, ships with many tutorials (https://xai-effector.github.io/) and is available under an open-source license at PyPi (https://pypi.org/project/effector/) and Github (https://github.com/givasile/effector).}
 }
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
-  selected={true},
-  inspirehep_id = {3255}
+@article{gkolemis24romc,
+  title={An Extendable Python Implementation of Robust Optimization Monte Carlo},
+  author = {Gkolemis, Vasilis and Gutmann, Michael and Pesonen, Henri},
+  journal={Journal of Statistical Software (JSS)},
+  year={2024},
+  abbr={ROMC},
+  selected = {true},
+  pdf = {gkolemis23_romc.pdf},
+  code = {https://github.com/givasile/ROMC-SW},
+  bibtex_show = {true},
+  arxiv = {2309.10612},
+  abstract = {Performing inference in statistical models with an intractable likelihood is challenging, therefore, most likelihood-free inference (LFI) methods encounter accuracy and efficiency limitations. In this paper, we present the implementation of the LFI method Robust Optimisation Monte Carlo (ROMC) in the Python package ELFI. ROMC is a novel and efficient (highly-parallelizable) LFI framework that provides accurate weighted samples from the posterior. Our implementation can be used in two ways. First, a scientist may use it as an out-of-the-box LFI algorithm; we provide an easy-to-use API harmonized with the principles of ELFI, enabling effortless comparisons with the rest of the methods included in the package. Additionally, we have carefully split ROMC into isolated components for supporting extensibility. A researcher may experiment with novel method(s) for solving part(s) of ROMC without reimplementing everything from scratch. In both scenarios, the ROMC parts can run in a fully-parallelized manner, exploiting all CPU cores. We also provide helpful functionalities for (i) inspecting the inference process and (ii) evaluating the obtained samples. Finally, we test the robustness of our implementation on some typical LFI examples.}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
+@inproceedings{gkolemis2024fast,
+  title={Fast and Accurate Regional Effect Plots for Automated Tabular Data Analysis},
+  author={Gkolemis, Vasilis and Dalamagas, Theodore and Ntoutsi, Eirini and Diou, Christos},
+  journal={Proceedings of the VLDB Endowment. ISSN},
+  booktitle= {VLDB @ Workshop TaDa},
+  year={2024},
+  code = {https://github.com/givasile/regional-RHALE},
+  url = {https://vldb.org/workshops/2024/proceedings/TaDA/TaDA.5.pdf},
+  slides = {gkolemis23_fast_presentation.pdf},
+  pdf = {gkolemis23_fast.pdf},
+  bibtex_show = {true},
+  selected = {true},
+  abbr={Regional-RHALE},
+  abstract = {The regional effect is a novel explainability method that can be used for automated tabular data understanding through a three-step procedure; a black-box machine learning model is trained on a tabular dataset, a regional effect method explains the ML model and the explanations are used to understand the data and and support decision making. Regional effect methods explain the effect of each feature of the dataset on the output within different subgroups, for example, how the age (feature) affects the annual income (output) for men and women separately (subgroups). Identifying meaningful subgroups is computationally intensive, and current regional effect methods face efficiency challenges. In this paper, we present regional RHALE (r-RHALE), a novel regional effect method designed for enhanced efficiency, making it particularly suitable for decision-making scenarios involving large datasets, i.e., with numerous instances or high dimensionality, and complex models such as deep neural networks. Beyond its efficiency, r-RHALE handles accurately tabular datasets with highly correlated features. We showcase the benefits of r-RHALE through a series of synthetic examples, benchmarking it against other regional effect methods. The accompanying code for the paper is publicly available.}
 }
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
+
+% ============================
+%  2023 Publications
+% ============================
+@inproceedings{gkolemis2023dale,
+    title = {DALE: Differential Accumulated Local Effects for efficient and accurate global explanations},
+    author = {Gkolemis, Vasilis and Dalamagas, Theodore and Diou, Christos},
+    year = {2023},
+    booktitle= {ACML},
+    abbr={DALE},
+    selected = {true},
+    url={https://proceedings.mlr.press/v189/gkolemis23a/gkolemis23a.pdf},
+    arxiv = {2210.04542},
+    pdf = {gkolemis22_dale.pdf},
+    supp = {gkolemis22_dale_supp.pdf},
+    code = {https://github.com/givasile/DALE},
+    slides = {gkolemis22_dale_presentation.pdf},
+    poster = {gkolemis22_dale_poster.pdf},
+    bibtex_show = {true},
+    abstract = {Accumulated Local Effect (ALE) is a method for accurately estimating feature effects, overcoming fundamental failure modes of previously-existed methods, such as Partial Dependence Plots. However, ALE's approximation, i.e. the method for estimating ALE from the limited samples of the training set, faces two weaknesses. First, it does not scale well in cases where the input has high dimensionality, and, second, it is vulnerable to out-of-distribution (OOD) sampling when the training set is relatively small. In this paper, we propose a novel ALE approximation, called Differential Accumulated Local Effects (DALE), which can be used in cases where the ML model is differentiable and an auto-differentiable framework is accessible. Our proposal has significant computational advantages, making feature effect estimation applicable to high-dimensional Machine Learning scenarios with near-zero computational overhead. Furthermore, DALE does not create artificial points for calculating the feature effect, resolving misleading estimations due to OOD sampling. Finally, we formally prove that, under some hypotheses, DALE is an unbiased estimator of ALE and we present a method for quantifying the standard error of the explanation. Experiments using both synthetic and real datasets demonstrate the value of the proposed approach.}
 }
 
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
+@inproceedings{gkolemis23rhale,
+    title = {RHALE: Robust and Heterogeneity-aware Accumulated Local Effects},
+    author = {Gkolemis, Vasilis and and Dalamagas, Theodore and Ntoutsi, Eirini and Diou, Christos},
+    year = {2023},
+    booktitle= {ECAI},
+    pages = {859--866},
+    publisher = {IOS Press},
+    selected = {true},
+    abbr={RHALE},
+    abstract = {Accumulated Local Effects (ALE) is a widely-used explainability method for isolating the average effect of a feature on the output, because it handles cases with correlated features well. However, it has two limitations. First, it does not quantify the deviation of instance-level (local) effects from the average (global) effect, known as heterogeneity. Second, for estimating the average effect, it partitions the feature domain into user-defined, fixed-sized bins, where different bin sizes may lead to inconsistent ALE estimations. To address these limitations, we propose Robust and Heterogeneity-aware ALE (RHALE). RHALE quantifies the heterogeneity by considering the standard deviation of the local effects and automatically determines an optimal variable-size bin-splitting. In this paper, we prove that to achieve an unbiased approximation of the standard deviation of local effects within each bin, bin splitting must follow a set of sufficient conditions. Based on these conditions, we propose an algorithm that automatically determines the optimal partitioning, balancing the estimation bias and variance. Through evaluations on synthetic and real datasets, we demonstrate the superiority of RHALE compared to other methods, including the advantages of automatic bin splitting, especially in cases with correlated features.
+    },
+    pdf = {gkolemis23_rhale.pdf},
+    supp = {gkolemis23_rhale_supplement.pdf},
+    code = {https://github.com/givasile/RHALE},
+    bibtex_show = {true},
+    arxiv = {2309.11193}
 }
 
-@Article{einstein1905photoelectriceffect,
-  bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
-}
-
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
+@inproceedings{gkolemis23ram,
+    title = {Regionally Additive Models: Explainable-by-design models minimizing feature interactions},
+    author = {Gkolemis, Vasilis and Tzerefos, Anargiros and Dalamagas, Theodore and Ntoutsi, Eirini and Diou, Christos},
+    booktitle={ECML @ Workshop: Uncertainty meets Explainability},
+    year = {2023},
+    abbr={RAM},
+    pages={433--447},
+    orgnization={Springer},
+    selected = {true},
+    pdf = {gkolemis23_ram.pdf},
+    code = {https://github.com/givasile/RAM},
+    bibtex_show = {true},
+    slides = {gkolemis23_ram_presentation.pdf},
+    arxiv = {2309.12215},
+    abstract = {Generalized Additive Models (GAMs) are widely used explainable-by-design models in various applications. GAMs assume that the output can be represented as a sum of univariate functions, referred to as components. However, this assumption fails in ML problems where the output depends on multiple features simultaneously. In these cases, GAMs fail to capture the interaction terms of the underlying function, leading to subpar accuracy. To (partially) address this issue, we propose Regionally Additive Models (RAMs), a novel class of explainable-by-design models. RAMs identify subregions within the feature space where interactions are minimized. Within these regions, it is more accurate to express the output as a sum of univariate functions (components). Consequently, RAMs fit one component per subregion of each feature instead of one component per feature. This approach yields a more expressive model compared to GAMs while retaining interpretability. The RAM framework consists of three steps. Firstly, we train a black-box model. Secondly, using Regional Effect Plots, we identify subregions where the black-box model exhibits near-local additivity. Lastly, we fit a GAM component for each identified subregion. We validate the effectiveness of RAMs through experiments on both synthetic and real-world datasets. The results confirm that RAMs offer improved expressiveness compared to GAMs while maintaining interpretability.
+    }
 }
