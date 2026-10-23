@@ -128,6 +128,7 @@ After selecting `Developer Settings` from the list on the left (bottom-left), ge
 </div>
 
 Following this, log out of the `xai-effector` account and log in to the `givasile` account. Navigate to the `givasile-effector` repository and access the settings _of the repo_.
+
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
     {% include figure.liquid path="assets/img/posts/2022_01_github_pages/Screenshot_2.png" class="img-fluid rounded z-depth-1" zoomable=true %}
