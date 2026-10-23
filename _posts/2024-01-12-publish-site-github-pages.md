@@ -37,7 +37,6 @@ _styles: >
     text-align: center;
     font-size: 16px;
   }
-
 ---
 
 ## MkDocs documenation
@@ -47,7 +46,7 @@ Working on the development of a `Python` package dedicated to [regional effect p
 Upon completing the site creation, I explored hosting options and identified two primary alternatives: [readthedocs](https://www.mkdocs.org/user-guide/deploying-your-docs/#read-the-docs) and [GitHub Pages](https://www.mkdocs.org/user-guide/deploying-your-docs/#github-pages). Given my familiarity with GitHub Pages, I opted for the latter.
 
 Mkdocs provides a convenient command, `mkdocs gh-deploy`, for deploying documentation to the same GitHub account as your package. However, this command cannot help in our case.
-I have developed `effector` in my personal GitHub account [`givasile/effector`](https://github.com/givasile/effector), and my personal account hosts my personal webpage. Since GitHub allows only one GitHub Page per account, I had to creae a separate GitHub account [`xai-effector/xai-effector.github.io`](https://github.com/xai-effector/) to host the documentation for `effector`. 
+I have developed `effector` in my personal GitHub account [`givasile/effector`](https://github.com/givasile/effector), and my personal account hosts my personal webpage. Since GitHub allows only one GitHub Page per account, I had to creae a separate GitHub account [`xai-effector/xai-effector.github.io`](https://github.com/xai-effector/) to host the documentation for `effector`.
 
 The missing link is an automation to connect the `givasile/effector` repository in my personal account with the `xai-effector/xai-effector.github.io`, which serves as the source repo for publishing the documentation at [https://xai-effector.github.io](https://xai-effector.github.io). The solution I am about to outline can be extended to connect any two repositories from different accounts, such as `account_1/repo_1` to `account_2/repo_2`.
 
@@ -57,8 +56,7 @@ GitHub Actions is a way to initiate an action (workflow) in response to a new co
 
 Let's initialize the workflow:
 
-
-``` yaml
+```yaml
 on:
   push:
     branches:
@@ -80,11 +78,11 @@ In the provided snippet, we specify that the GitHub Action should only be trigge
 
 In the first `job`, we build the documenation using `mdkdocs build` and we store it as an artifact:
 
-``` yaml
-  build-documentation:
-    runs-on: ubuntu-latest
+```yaml
+build-documentation:
+  runs-on: ubuntu-latest
 
-    steps:
+  steps:
     - name: Checkout current repo
       uses: actions/checkout@v2
 
@@ -129,7 +127,7 @@ After selecting `Developer Settings` from the list on the left (bottom-left), ge
     </div>
 </div>
 
-Following this, log out of the `xai-effector` account and log in to the `givasile` account. Navigate to the `givasile-effector` repository and access the settings *of the repo*.
+Following this, log out of the `xai-effector` account and log in to the `givasile` account. Navigate to the `givasile-effector` repository and access the settings _of the repo_.
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
     {% include figure.liquid path="assets/img/posts/2022_01_github_pages/Screenshot_2.png" class="img-fluid rounded z-depth-1" zoomable=true %}
@@ -146,16 +144,15 @@ Now, within the `givasile-effector` repository, go to `Actions -> Secrets` and a
 
 Now we have all we need to push the documentation with the following job:
 
-
-``` yaml
-  push-site:
-    name: Copy site to effector.github.io
-    needs:
+```yaml
+push-site:
+  name: Copy site to effector.github.io
+  needs:
     - build-documentation
 
-    runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
 
-    steps:
+  steps:
     - name: Download the site as artifact
       uses: actions/download-artifact@v2
       with:
@@ -165,24 +162,24 @@ Now we have all we need to push the documentation with the following job:
     - name: Clone xai-effector.github.io and checkout gh-pages branch
       uses: actions/checkout@v2
       with:
-          repository: xai-effector/xai-effector.github.io
-          ref: gh-pages
-          token: ${{ secrets.EFFECTOR_GITHUB_API_KEY }}
-          path: xai-effector.github.io
+        repository: xai-effector/xai-effector.github.io
+        ref: gh-pages
+        token: ${{ secrets.EFFECTOR_GITHUB_API_KEY }}
+        path: xai-effector.github.io
 
     - name: rm old site and copy new site
       run: |
-          rm -rf xai-effector.github.io/*
-          cp -r site/* xai-effector.github.io
+        rm -rf xai-effector.github.io/*
+        cp -r site/* xai-effector.github.io
 
     - name: commit and push
       run: |
-          cd xai-effector.github.io
-          git config --global user.email "ntipakos@gmail.com"
-          git config --global user.name "ntipakos"
-          git add .
-          git commit -m "Update site from ntipakos/effector"
-          git push --force origin gh-pages
+        cd xai-effector.github.io
+        git config --global user.email "ntipakos@gmail.com"
+        git config --global user.name "ntipakos"
+        git add .
+        git commit -m "Update site from ntipakos/effector"
+        git push --force origin gh-pages
 ```
 
 In the snippet above, we first download the artifact (the built site) from the first job. Then, we clone the `xai-effector/xai-effector.github.io` repository and specifically the `gh-pages` branch. Note that for connecting to the `xai-effector` GitHub account, we utilize the token `${{ secrets.EFFECTOR_GITHUB_API_KEY }}` we created before. Subsequently, we clear all existing files from the repository and copy over all files from the build site, effectively replacing the old with the new site. Finally, we commit the updated files and push them to the repository.
@@ -192,4 +189,3 @@ In the snippet above, we first download the artifact (the built site) from the f
 There you have it! With this process, whenever a new tagged commit is made to the `givasile/effector` repository, the revised documentation will be automatically committed to the `gh-pages` branch within the `xai-effector/xai-effector.github.io` repository. Subsequently, it will undergo automatic redeployment to [`xai-effector.github.io`](https://xai-effector.github.io).
 
 The approach above is applicable in a broader context. You can substitute `givasile/effector` and `xai-effector/xai-effector.github.io` with any `account_1/repo_1` and `account_2/repo_2`, and you have a generic workflow for automatically committing the latest changes from `repo_1` to `repo_2`.
-

@@ -46,7 +46,6 @@ _styles: >
     text-align: center;
     font-size: 16px;
   }
-
 ---
 
 ## Uncertainty Types
@@ -86,7 +85,7 @@ $$
 \mathcal{U}(x) = \mathcal{U}_a(x) + \mathcal{U}_e(x)
 $$
 
-***
+---
 
 ## Mathematical Formulation
 
@@ -153,7 +152,7 @@ of surprise, you may wonder why not simply use $1 - p(x_i)$, which
 maps the surprise into an intuitive linear scale of $[0, 1]$. In
 general, any function $f: [0,1] \rightarrow \mathbb{R}$ that is
 continuously decreasing in its domain could play this role. So, why
-choose $-\log$?  The information gain dictates that if we observe two
+choose $-\log$? The information gain dictates that if we observe two
 **independent** random variables, $x_i \sim X$ with information gain
 $H(x_i)$ and $y_i \sim Y$ with information gain $H(y_i)$, we want the
 total gain equal the sum. It is a meaningful property; if you learn
@@ -173,9 +172,9 @@ information gain** we will get after observing a sample:
 
 Entropy has its origins in Information Theory. For anyone interested,
 there are numerous excellent resources with interpretations about
-entropy <d-cite key="pml1Book,bishop2006pattern"></d-cite>. 
+entropy <d-cite key="pml1Book,bishop2006pattern"></d-cite>.
 
-***
+---
 
 ## Entropy for Uncertainty
 
@@ -220,7 +219,8 @@ $H_1=0.88$ and the second $H_2=0.61$. We know that the first
 prediction is more uncertain, but how much? We cannot (directly)
 interpret how much more certain the second model is.
 
-***
+---
+
 ## Split into Aleatoric and Epistemic
 
 Above, we considered a single model and used entropy to measure its
@@ -263,7 +263,7 @@ the posterior. We freeze the expected prediction to $\mathbf{p} =
 $\mathbf{p}^{(1)} = (p_1 - \Delta p, 1 - p_1 + \Delta p)$ and model 2
 with $\mathbf{p}^{(2)} = (p_1 + \Delta p, 1 - p_1 - \Delta p)$. We
 change the value of $\Delta p$ to see how aleatoric and epistemic
-uncertainty behave. 
+uncertainty behave.
 
 Some intuition. Firstly, we expect that the total uncertainty remains
 constant; it is the entropy of the frozen expected prediction. We
@@ -295,15 +295,13 @@ p_2=0.5)$.
 
 And a table with numbers for $\mathbf{p} = (p_1=0.8, p_2=0.2)$.
 
-
-| $\mathbf{p^{(1)}}$ | $H_1$  | $\mathbf{p^{(2)}}$ | $H_2$  | $\mathbf{p}$ | $H$    | $H_a$               | $H_e$               |
-|:------------------:|:------:|:------------------:|:------:|:------------:|:------:|:-------------------:|:-------------------:|
-| $(0.8, 0.2)$       | $0.72$ | $(0.8, 0.2)$       | $0.72$ | $(0.8, 0.2)$ | $0.72$ | $0.72 \; (100\%)$   | $0    \; (0\%)$     |
-| $(0.85, 0.15)$     | $0.61$ | $(0.75, 0.15)$     | $0.81$ | $(0.8, 0.2)$ | $0.72$ | $0.71 \; (98.43\%)$ | $0.01 \; (1.57\%)$  |
-| $(0.9, 0.1)$       | $0.47$ | $(0.7, 0.3)$       | $0.88$ | $(0.8, 0.2)$ | $0.72$ | $0.68 \; (93.52\%)$ | $0.05 \; (6.48\%)$  |
-| $(0.95, 0.05)$     | $0.29$ | $(0.65, 0.35)$     | $0.93$ | $(0.8, 0.2)$ | $0.72$ | $0.61 \; (84.53\%)$ | $0.11 \; (15.47\%)$ |
-| $(1, 0)$           | $0$    | $(0.6, 0.4)$       | $0.97$ | $(0.8, 0.2)$ | $0.72$ | $0.49 \; (67.2\%)$  | $0.24 \; (32.75\%)$ |
-
+| $\mathbf{p^{(1)}}$ | $H_1$  | $\mathbf{p^{(2)}}$ | $H_2$  | $\mathbf{p}$ |  $H$   |        $H_a$        |        $H_e$        |
+| :----------------: | :----: | :----------------: | :----: | :----------: | :----: | :-----------------: | :-----------------: |
+|    $(0.8, 0.2)$    | $0.72$ |    $(0.8, 0.2)$    | $0.72$ | $(0.8, 0.2)$ | $0.72$ |  $0.72 \; (100\%)$  |    $0 \; (0\%)$     |
+|   $(0.85, 0.15)$   | $0.61$ |   $(0.75, 0.15)$   | $0.81$ | $(0.8, 0.2)$ | $0.72$ | $0.71 \; (98.43\%)$ | $0.01 \; (1.57\%)$  |
+|    $(0.9, 0.1)$    | $0.47$ |    $(0.7, 0.3)$    | $0.88$ | $(0.8, 0.2)$ | $0.72$ | $0.68 \; (93.52\%)$ | $0.05 \; (6.48\%)$  |
+|   $(0.95, 0.05)$   | $0.29$ |   $(0.65, 0.35)$   | $0.93$ | $(0.8, 0.2)$ | $0.72$ | $0.61 \; (84.53\%)$ | $0.11 \; (15.47\%)$ |
+|      $(1, 0)$      |  $0$   |    $(0.6, 0.4)$    | $0.97$ | $(0.8, 0.2)$ | $0.72$ | $0.49 \; (67.2\%)$  | $0.24 \; (32.75\%)$ |
 
 We observe that due to the log nature of entropy, it is difficult to
 interpret aleatoric and epistemic uncertainties as absolute values or
@@ -325,7 +323,7 @@ predictions one by one is not easy if you have many models or the
 whole posterior distribution. In these cases, entropy provides a
 convenient summary statistic that respects $H = H_e + H_a$.
 
-***
+---
 
 ## Conclusion
 
@@ -345,12 +343,12 @@ then the prediction $1$ is more uncertain than the prediction $2$.
 Choosing whether to trust the prediction, can be easily decided based
 on the **epistemic entropy**. Check the following table:
 
-| $H_a$ | $H_e$ | Take-away                      | Interpretation                                            |
-|:------|:------|:------------------------------:|:---------------------------------------------------------:|
-| low   | low   | Trust the certain prediction   | Models agree on a certain prediction                      |
+| $H_a$ | $H_e$ |           Take-away            |                      Interpretation                       |
+| :---- | :---- | :----------------------------: | :-------------------------------------------------------: |
+| low   | low   |  Trust the certain prediction  |           Models agree on a certain prediction            |
 | high  | low   | Trust the uncertain prediction | Model aggree that they can predict with some uncertainty. |
-| low   | high  | Don't trust the prediction     | The input is away from the training data manifold.        |
-| high  | high  | Don't trust the prediction     | The input is away from the training data manifold.        |
+| low   | high  |   Don't trust the prediction   |    The input is away from the training data manifold.     |
+| high  | high  |   Don't trust the prediction   |    The input is away from the training data manifold.     |
 
 If $H_e$ is small, models agree so we can trust their outcome; if
 they are all certain, we can follow the prediction if they are all

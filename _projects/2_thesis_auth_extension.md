@@ -16,10 +16,10 @@ authors:
       name: Aristotle University of Thessaloniki
 ---
 
-* The pdf presenting the project can be found [here]({{ site.url }}/assets/pdf/auth_thesis_extension.pdf)
-* the github repository [here](https://github.com/givasile/stereo_vision_project)
+- The pdf presenting the project can be found [here]({{ site.url }}/assets/pdf/auth_thesis_extension.pdf)
+- the github repository [here](https://github.com/givasile/stereo_vision_project)
 
-***
+---
 
 **Abstract**
 
@@ -40,5 +40,3 @@ theory and incorporated them into the MSNet architecture. MSNet
 exhibits challenging performance comparing to the state-of-the-art
 methods in the SceneFlow dataset, even though it uses considerably
 less learnable parameters.
-
-

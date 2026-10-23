@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: 
+description:
 years: [2026, 2025, 2024, 2023]
 nav: true
 nav_order: 1
@@ -19,5 +19,3 @@ Also on [google scholar](https://scholar.google.com/citations?user=kPaepMQAAAAJ&
 {% endfor %}
 
 </div>
-
-

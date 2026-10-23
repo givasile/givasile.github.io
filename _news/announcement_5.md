@@ -18,6 +18,3 @@ The PhD is a cooperation between the Harokopio University of Athens
 My PhD research focuses on Explainable AI, specifically in extending
 traditional Explainability techniques to be applicable in
 probabilistic ML models, e.g. Bayesian Neural Networks.
-
-
-

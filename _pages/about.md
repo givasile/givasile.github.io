@@ -2,18 +2,18 @@
 layout: about
 title: about
 permalink: /
-subtitle: 
+subtitle:
 
 profile:
   align: right
-  image: 
+  image:
   image_circular: true # crops the image to make it circular
-  address: 
+  address:
 
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 selected_talks: false # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+social: true # includes social icons at the bottom of the page
 ---
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -160,7 +160,6 @@ html[data-theme="dark"] .timeline-content {
 
 </style>
 
-
 <div class="profile-header">
   <div class="profile-image">
     <img src="{{ '/assets/img/prof_pic.jpg' | relative_url }}" alt="Vasilis Gkolemis">
@@ -217,7 +216,6 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
 
 ---
 
-
 <div class="timeline">
 
   <div class="timeline-item">
@@ -268,7 +266,6 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
     </div>
   </div>
 
-
   <div class="timeline-item">
     <div class="timeline-marker"></div>
     <img class="timeline-image" src="{{ '/assets/img/logo_uoe.webp' | relative_url }}" alt="Image description">
@@ -296,7 +293,7 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
         5-year Diploma from Aristotle University of Thessaloniki. 
         This is where I got into machine learning, working with 
         <a href="https://scholar.google.com/citations?user=yBp_7EEAAAAJ&hl=en">Anastasios Delopoulos</a> on 
-        Stereo Vision using Deep Neural Networks.
+        <a href="{{ '/projects/1_thesis_auth/' | relative_url }}">Stereo Vision using Deep Neural Networks.</a>
       </div>
     </div>
   </div>

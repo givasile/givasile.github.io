@@ -18,12 +18,11 @@ citation_url: https://arxiv.org/abs/2011.03977
 
 slug: gkolemis2020extending
 bibliography: edinburgh_thesis.bib
-
 ---
 
 The pdf can be found [here]({{ site.url }}/assets/pdf/edinburgh_thesis.pdf), the arXiv link [here](https://arxiv.org/abs/2011.03977) and the corresponding github repository [here](https://github.com/givasile/edinburgh-thesis).
 
-***
+---
 
 **Abstract**<d-cite key="gkolemis2020extending"></d-cite>
 
@@ -46,4 +45,3 @@ it exploits parallel processing for accelerating the inference wherever it is po
 designed to serve extensibility; the user can easily replace specific subparts of the method without
 significant overhead on the development side. Therefore, it can be used by a researcher for further
 experimentation.
-

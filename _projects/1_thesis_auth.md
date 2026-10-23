@@ -15,14 +15,14 @@ authors:
       name: Aristotle University of Thessaloniki
 ---
 
-* The thesis pdf can be found [here]({{ site.url }}/assets/pdf/auth_thesis.pdf)
-* A 2-page summary [here]({{ site.url }}/assets/pdf/auth_summary.pdf)
-* A slides-presentation [here]({{ site.url }}/assets/pdf/auth_presentation.pdf)
-* the github repository [here](https://github.com/givasile/ece-auth-thesis)
+- The thesis pdf can be found [here]({{ site.url }}/assets/pdf/auth_thesis.pdf)
+- A 2-page summary [here]({{ site.url }}/assets/pdf/auth_summary.pdf)
+- A slides-presentation [here]({{ site.url }}/assets/pdf/auth_presentation.pdf)
+- the github repository [here](https://github.com/givasile/ece-auth-thesis)
 
 (above documents are in greek)
 
-***
+---
 
 **Abstract**
 
@@ -37,7 +37,7 @@ semi-global matching, detection and readjustment of outliers. The whole method
 is evaluated at well-known stereo datasets, such as KITTI 2012, KITTI 2015 and
 Middlebury.
 
-***
+---
 
 **Περίληψη**
 
