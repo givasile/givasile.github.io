@@ -9,6 +9,6 @@ From November of 2020, I am working as a Research Assistant at the
 [ATHENA Research and Innovation
 Center](https://www.athena-innovation.gr/en/home). I mainly involved
 in the Horizon-2020 research project
-[XMANAI](https://ai4manufacturing.eu/), where my primary
+[XMANAI](https://cordis.europa.eu/project/id/957362), where my primary
 responsibilities is developing novel Interpretable Machine Learning
 techniques, especially, in Graph Machine Learning Algorithms.

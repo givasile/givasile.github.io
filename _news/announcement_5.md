@@ -9,7 +9,7 @@ From March of 2022, I am a PhD candidate in AI under the supervision
 of Prof. [Christos
 Diou](https://www.linkedin.com/in/christos-diou/?originalSubdomain=gr),
 Prof. [Eirini
-Ntoutsi](https://www.mi.fu-berlin.de/en/inf/groups/ag-KIML/members/Professoren/Ntoutsi.html)
+Ntoutsi](https://www.unibw.de/home-en/appointment-of-professors/prof-eirini-ntoutsi)
 and Prof. [Theodore
 Dalamagas](https://scholar.google.gr/citations?user=WJOLNAYAAAAJ&hl=en).
 The PhD is a cooperation between the Harokopio University of Athens

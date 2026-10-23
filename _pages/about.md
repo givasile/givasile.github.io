@@ -163,7 +163,7 @@ html[data-theme="dark"] .timeline-content {
 
 <div class="profile-header">
   <div class="profile-image">
-    <img src="assets/img/prof_pic.jpg" alt="Vasilis Gkolemis">
+    <img src="{{ '/assets/img/prof_pic.jpg' | relative_url }}" alt="Vasilis Gkolemis">
   </div>
   <div class="profile-info">
     <h1>Vasilis Gkolemis</h1>
@@ -222,7 +222,7 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
 
   <div class="timeline-item">
     <div class="timeline-marker"></div>
-    <img class="timeline-image" src="assets/img/logo_lmu.png" alt="Image description">
+    <img class="timeline-image" src="{{ '/assets/img/logo_lmu.png' | relative_url }}" alt="Image description">
     <div class="timeline-content">
       <div class="timeline-title">Research Visit @ LMU</div>
       <div class="timeline-period">2025 (January - March), 2026 (June - July)</div>
@@ -238,7 +238,7 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
 
   <div class="timeline-item">
     <div class="timeline-marker"></div>
-    <img class="timeline-image" src="assets/img/logo_hua.webp" alt="Image description">
+    <img class="timeline-image" src="{{ '/assets/img/logo_hua.webp' | relative_url }}" alt="Image description">
     <div class="timeline-content">
       <div class="timeline-title">PhD in Explainable AI @ DIT-HUA</div>
       <div class="timeline-period">2023 - Present</div>
@@ -255,7 +255,7 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
 
   <div class="timeline-item">
     <div class="timeline-marker"></div>
-    <img class="timeline-image" src="assets/img/logo_athenarc.png" alt="Image description">    
+    <img class="timeline-image" src="{{ '/assets/img/logo_athenarc.png' | relative_url }}" alt="Image description">    
     <div class="timeline-content">
       <div class="timeline-title">Research Assistant @ ATHENA RC</div>
       <div class="timeline-period">2021 - Present</div>
@@ -271,7 +271,7 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
 
   <div class="timeline-item">
     <div class="timeline-marker"></div>
-    <img class="timeline-image" src="assets/img/logo_uoe.webp" alt="Image description">
+    <img class="timeline-image" src="{{ '/assets/img/logo_uoe.webp' | relative_url }}" alt="Image description">
     <div class="timeline-content">
       <div class="timeline-title">MSc in Data Science @ UoE</div>
       <div class="timeline-period">2019 - 2020</div>
@@ -279,7 +279,7 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
         MSc at the University of Edinburgh, working with
         <a href="https://michaelgutmann.github.io/">Michael Gutmann</a> on likelihood-free inference.<br>
         There, I took two pivotal courses, 
-        <a href="https://mlpr.inf.ed.ac.uk/2024/">MLPR</a> (<a href="https://homepages.inf.ed.ac.uk/imurray2/">Ian Murray</a>) and
+        <a href="https://opencourse.inf.ed.ac.uk/mlpr">MLPR</a> (<a href="https://homepages.inf.ed.ac.uk/imurray2/">Ian Murray</a>) and
         <a href="https://opencourse.inf.ed.ac.uk/pmr/2025/">PMR</a> (<a href="https://michaelgutmann.github.io/">Michael Gutmann</a>),
         that shaped my understanding of machine learning.
       </div>
@@ -288,7 +288,7 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
 
   <div class="timeline-item">
     <div class="timeline-marker"></div>
-    <img class="timeline-image" src="assets/img/logo_auth.png" alt="Image description">    
+    <img class="timeline-image" src="{{ '/assets/img/logo_auth.png' | relative_url }}" alt="Image description">    
     <div class="timeline-content">
       <div class="timeline-title">Diploma in Electrical and Computer Engineering @ ECE AUTH</div>
       <div class="timeline-period">2011 - 2017</div>
@@ -296,7 +296,7 @@ Personal websites are great, but we don't need more [500-pound websites](https:/
         5-year Diploma from Aristotle University of Thessaloniki. 
         This is where I got into machine learning, working with 
         <a href="https://scholar.google.com/citations?user=yBp_7EEAAAAJ&hl=en">Anastasios Delopoulos</a> on 
-        <a href="https://givasile.github.io/dissertations/1_thesis_auth/">Stereo Vision using Deep Neural Networks.</a>
+        Stereo Vision using Deep Neural Networks.
       </div>
     </div>
   </div>

@@ -67,8 +67,7 @@ nav_order: 3
     <div class="periodical"><em>June 2023 · Thessaloniki, Greece</em></div>
     <div class="links">
       <a class="abstract btn btn-sm z-depth-0" role="button">About</a>
-      <a href="https://github.com/M2Lschool/tutorials2023-dev" class="btn btn-sm z-depth-0" role="button">Material</a>
-      <a href="https://github.com/givasile/tutorials2023-dev" class="btn btn-sm z-depth-0" role="button">My Fork</a>
+      <a href="https://github.com/M2Lschool/tutorials2023" class="btn btn-sm z-depth-0" role="button">Material</a>
     </div>
     <div class="abstract hidden">
       <p>Taught the Large Language Models module: foundations, architectures, and hands-on implementation. Participants built an LLM agent using JAX and Haiku.</p>
