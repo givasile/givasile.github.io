@@ -2,7 +2,7 @@
 layout: page
 title: Misc
 permalink: /others/
-nav: true
+nav: false
 display_categories: [work, fun]
 horizontal: false
 dropdown: true

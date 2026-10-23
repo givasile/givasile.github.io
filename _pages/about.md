@@ -42,7 +42,7 @@ social: true  # includes social icons at the bottom of the page
   top: 0;
   bottom: -40px;
   width: 2px;
-  background: #999;
+  background: var(--global-text-color-light);
 }
 
 .timeline-image {
@@ -53,8 +53,9 @@ social: true  # includes social icons at the bottom of the page
   height: 75px;
   border-radius: 10%;
   object-fit: cover;
-  border: 1px solid #fff;
-  box-shadow: 0 0 0 2px #2c5aa0;
+  background: #fff;
+  border: 1px solid var(--global-bg-color);
+  box-shadow: 0 0 0 2px var(--global-theme-color);
   z-index: 2;
 }
 
@@ -70,34 +71,38 @@ social: true  # includes social icons at the bottom of the page
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #2c5aa0;
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 2px #2c5aa0;
+  background: var(--global-theme-color);
+  border: 3px solid var(--global-bg-color);
+  box-shadow: 0 0 0 2px var(--global-theme-color);
 }
 
 .timeline-content {
   padding: 15px 20px;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #2c5aa0;
+  border-left: 4px solid var(--global-theme-color);
+}
+
+html[data-theme="dark"] .timeline-content {
+  background: var(--global-code-bg-color);
 }
 
 .timeline-title {
   font-weight: bold;
   font-size: 1.2em;
   margin-bottom: 8px;
-  color: #2c5aa0;
+  color: var(--global-theme-color);
 }
 
 .timeline-period {
   font-size: 0.9em;
-  color: #666;
+  color: var(--global-text-color-light);
   font-style: italic;
   margin-bottom: 8px;
 }
 
 .timeline-description {
-  color: #333;
+  color: var(--global-text-color);
   line-height: 1.6;
 }
 
@@ -134,7 +139,7 @@ social: true  # includes social icons at the bottom of the page
 .profile-description {
   font-size: 1.1em;
   line-height: 1.6;
-  color: #333;
+  color: var(--global-text-color);
   margin-bottom: 20px;
 }
 
@@ -145,12 +150,12 @@ social: true  # includes social icons at the bottom of the page
 }
 
 .social-icons a {
-  color: #666;
+  color: var(--global-text-color-light);
   transition: color 0.3s;
 }
 
 .social-icons a:hover {
-  color: #2c5aa0;
+  color: var(--global-theme-color);
 }
 
 </style>
@@ -163,8 +168,9 @@ social: true  # includes social icons at the bottom of the page
   <div class="profile-info">
     <h1>Vasilis Gkolemis</h1>
     <div class="profile-description">
-      🤖 PhD in Explainable AI @ <a href="https://dit.hua.gr/index.php/en/">DIT/HUA</a> | Research Assistant @ <a href="https://www.athenarc.gr/en">ATHENA RC</a> <br>
-      💡 Working on interpretable machine learning systems 
+      PhD in Explainable AI @ <a href="https://dit.hua.gr/index.php/en/">DIT/HUA</a> <br>
+      Research Assistant @ <a href="https://www.athenarc.gr/en">ATHENA RC</a> <br>
+      Working on interpretable machine learning systems 
     </Div>
     <div class="social-icons">
       <a href="https://github.com/{{ site.github_username}}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
@@ -176,43 +182,38 @@ social: true  # includes social icons at the bottom of the page
   </div>
 </div>
 
-I am usually at [ATHENA RC](https://maps.app.goo.gl/KwFYJgyK4qkw4W976),
-doing research on Explainable AI under the supervision of 
+I work at [ATHENA RC](https://maps.app.goo.gl/KwFYJgyK4qkw4W976) and do my PhD at [HUA](https://dit.hua.gr/index.php/en/).
+My research is around interpretable ML systems, from explainable AI to simulation-based inference,
+supervised by
 [Christos Diou](https://diou.github.io/),
-[Theodore Dalamagas](https://scholar.google.gr/citations?user=WJOLNAYAAAAJ&hl=en),
+[Theodore Dalamagas](https://scholar.google.gr/citations?user=WJOLNAYAAAAJ&hl=en)
 and
 [Eirini Ntoutsi](https://www.unibw.de/home-en/appointment-of-professors/prof-eirini-ntoutsi).
-I also collaborate on explainability research with colleagues in Munich, including [Giuseppe Casalicchio](https://scholar.google.com/citations?user=MHcaZMQAAAAJ&hl=de) and the entire [IML team](https://www.slds.stat.uni-muenchen.de/research/explainable-ai.html) led by [Bernd Bischl](https://scholar.google.com/citations?user=s34UckkAAAAJ&hl=de).
-I keep an ongoing interest in probabilistic ML, especially likelihood-free inference,
+
+I keep an interest in probabilistic ML, especially likelihood-free inference,
 where I often work with [Michael Gutmann](https://michaelgutmann.github.io/).
 
----
-
-I actively contribute (and sometimes lead) open-source projects like [Effector](https://github.com/givasile/effector) and [ELFI](https://github.com/elfi-dev/elfi).
+I often collaborate on explainability research with [Giuseppe Casalicchio](https://scholar.google.com/citations?user=MHcaZMQAAAAJ&hl=de) and the whole [IML team](https://www.slds.stat.uni-muenchen.de/research/explainable-ai.html) led by [Bernd Bischl](https://scholar.google.com/citations?user=s34UckkAAAAJ&hl=de).
 
 ---
 
-I have served as a reviewer for conferences like NeurIPS, AISTATS, ECML and journals like JAI.
+I contribute to, and sometimes lead, open-source projects like [Effector](https://github.com/givasile/effector) and [ELFI](https://github.com/elfi-dev/elfi).
 
 ---
 
-I believe in [slow science](http://slow-science.org/).
+I publish at and review for conferences like NeurIPS, AISTATS and ECML, and journals like JAI.
+
+---
+
+I believe in [slow science](https://www.slow-science.com/).
 The current pace burns people out and buries meaningful research under an avalanche of noise.
 
 ---
 
-Personal websites are great, but we need no more [500-pound websites](https://motherfuckingwebsite.com/).
+Personal websites are great, but we don't need more [500-pound websites](https://motherfuckingwebsite.com/).
 
 ---
 
-I sometimes work on interpretability projects in industry, like LLM explainability for [novelcore](https://www.novelcore.eu/) (6-month project at 2023).
-
-
----
-
-If you want a more detailed look at what I do, check out my [CV]({{site.url}}/assets/pdf/cv_english.pdf).
-
----
 
 <div class="timeline">
 
@@ -221,7 +222,7 @@ If you want a more detailed look at what I do, check out my [CV]({{site.url}}/as
     <img class="timeline-image" src="assets/img/logo_lmu.png" alt="Image description">
     <div class="timeline-content">
       <div class="timeline-title">Research Visit @ LMU</div>
-      <div class="timeline-period">2025 (January - March)</div>
+      <div class="timeline-period">2025 (January - March), 2026 (June - July)</div>
       <div class="timeline-description">
         I mainly developed <a href="https://xai-effector.github.io/">Effector</a>, an eXplainable AI package for tabular data.
         I worked with some people from the IML group, including

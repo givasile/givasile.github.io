@@ -4,7 +4,7 @@ permalink: /talks/
 title: talks
 description: 
 years: [2023, 2021]
-nav: true
+nav: false
 nav_order: 3
 ---
 

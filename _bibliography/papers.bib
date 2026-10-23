@@ -1,4 +1,24 @@
 % ============================
+%  2026 Publications
+% ============================
+@inproceedings{gkolemis26calm,
+  title={Interpretability-by-Design with Accurate Locally Additive Models and Conditional Feature Effects},
+  author={Gkolemis, Vasilis and Kavouras, Loukas and Kyriakopoulos, Dimitrios and Tsopelas, Konstantinos and Rontogiannis, Dimitrios and Casalicchio, Giuseppe and Dalamagas, Theodore and Diou, Christos},
+  booktitle={NeurIPS},
+  year={2026},
+  abbr={CALM},
+  selected = {true},
+  pdf = {gkolemis26_calm.pdf},
+  code = {https://github.com/givasile/calm-paper},
+  website = {https://givasile.github.io/calm-additive/},
+  package = {https://github.com/givasile/calm-additive},
+  bibtex_show = {true},
+  arxiv = {2602.16503},
+  abstract = {Generalized additive models (GAMs) offer high interpretability through independent univariate feature effects but underfit when interactions are present in data. GA²Ms add selected pairwise interactions which improves accuracy, but sacrifices interpretability. We propose Conditionally Additive Local Models (CALMs), a new model class that narrows this trade-off: it stays close to GAMs in interpretability and close to GA²Ms in accuracy. CALMs allow multiple univariate shape functions per feature, each active in different regions of the input space. These regions are defined independently for each feature as simple logical conditions (thresholds) on the features it interacts with. As a result, effects remain locally additive while varying across subregions to capture interactions. We further propose a principled distillation-based training pipeline that identifies homogeneous regions with limited interactions and fits interpretable shape functions via region-aware backfitting. Experiments on diverse classification and regression tasks show that CALMs consistently outperform GAMs and achieve accuracy broadly comparable to GA²Ms, while preserving the univariate auditability that GA²Ms forfeit.}
+}
+
+
+% ============================
 %  2025 Publications
 % ============================
 @article{gkolemis25r2omc,
