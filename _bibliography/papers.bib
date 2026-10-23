@@ -18,24 +18,29 @@
 }
 
 
-% ============================
-%  2025 Publications
-% ============================
-@article{gkolemis25r2omc,
+@inproceedings{gkolemis26r2omc,
   title={Fast and Robust Simulation-Based Inference With Optimization Monte Carlo},
-  author={Gkolemis Vasilis and Diou Christos and Gutmann Michael},
-  journal={arXiv preprint arXiv:2511.13394},
-  year={2025},
+  author={Gkolemis, Vasilis and Diou, Christos and Gutmann, Michael U.},
+  booktitle={AISTATS},
+  year={2026},
+  pages={3151--3159},
+  publisher={PMLR},
   abbr={R2OMC},
   selected = {true},
-  pdf = {gkolemis25_r2omc.pdf},
+  url = {https://proceedings.mlr.press/v300/gkolemis26a.html},
+  pdf = {gkolemis26_r2omc.pdf},
+  poster = {gkolemis26_r2omc_poster.pdf},
+  code = {https://github.com/givasile/r2omc/tree/aistats2026},
+  package = {https://github.com/givasile/r2omc},
   bibtex_show = {true},
   arxiv = {2511.13394},
-  code = {https://github.com/givasile/lfi},
-  abstract = {Bayesian parameter inference for complex stochastic simulators is challenging due to intractable likelihood functions. Existing simulation-based inference methods often require large number of simulations and become costly to use in high-dimensional parameter spaces or in problems with partially uninformative outputs. We propose a new method for differentiable simulators that delivers accurate posterior inference with substantially reduced runtimes. Building on the Optimization Monte Carlo framework, our approach reformulates stochastic simulation as deterministic optimization problems. Gradient-based methods are then applied to efficiently navigate toward high-density posterior regions and avoid wasteful simulations in low-probability areas. A JAX-based implementation further enhances the performance through vectorization of key method components. Extensive experiments, including high-dimensional parameter spaces, uninformative outputs, multiple observations and multimodal posteriors show that our method consistently matches, and often exceeds, the accuracy of state-of-the-art approaches, while reducing the runtime by a substantial margin.}
+  abstract = {Bayesian parameter inference for complex stochastic simulators is challenging due to intractable likelihood functions. Existing simulation-based inference methods often require large number of simulations and become costly to use in high-dimensional parameter spaces or in problems with partially uninformative outputs. We propose a new method for differentiable simulators that delivers accurate posterior inference with substantially reduced runtimes. Building on the Optimization Monte Carlo framework, our approach reformulates inference for stochastic simulators in terms of deterministic optimization problems. Gradient-based methods are then applied to efficiently navigate toward high-density posterior regions and avoid wasteful simulations in low-probability areas. A JAX-based implementation further enhances the performance through vectorization of key method components. Extensive experiments, including high-dimensional parameter spaces, uninformative outputs, multiple observations and multimodal posteriors show that our method consistently matches, and often exceeds, the accuracy of state-of-the-art approaches, while reducing the runtime by a substantial margin.}
 }
 
 
+% ============================
+%  2025 Publications
+% ============================
 @inproceedings{didrich2025learning,
   title={Learning to Accelerate: Tuning Data Transfer Parameters},
   author={Didrich, Benedikt and Gavriliidis, Haralampos and Gkolemis, Vasilis and Boehm, Matthias and Markl, Volker},
@@ -121,7 +126,7 @@
 
 @inproceedings{gkolemis23rhale,
     title = {RHALE: Robust and Heterogeneity-aware Accumulated Local Effects},
-    author = {Gkolemis, Vasilis and and Dalamagas, Theodore and Ntoutsi, Eirini and Diou, Christos},
+    author = {Gkolemis, Vasilis and Dalamagas, Theodore and Ntoutsi, Eirini and Diou, Christos},
     year = {2023},
     booktitle= {ECAI},
     pages = {859--866},

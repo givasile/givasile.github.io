@@ -52,10 +52,10 @@ nav_order: 2
   <div class="col-sm-8">
     <div class="title">lfi</div>
     <div class="author">Simulation-based inference with one interface for simulators, priors and methods. Home of R2OMC.</div>
-    <div class="periodical"><code>pip install git+https://github.com/givasile/lfi</code></div>
+    <div class="periodical"><code>pip install git+https://github.com/givasile/r2omc</code></div>
     <div class="links">
-      <a href="https://github.com/givasile/lfi" class="btn btn-sm z-depth-0" role="button">Code</a>
-      <a href="{{ '/assets/pdf/gkolemis25_r2omc.pdf' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
+      <a href="https://github.com/givasile/r2omc" class="btn btn-sm z-depth-0" role="button">Code</a>
+      <a href="{{ '/assets/pdf/gkolemis26_r2omc.pdf' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Paper</a>
     </div>
   </div>
 </div>
