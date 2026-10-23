@@ -7,7 +7,7 @@ inline: false
 
 From March of 2022, I am a PhD candidate in AI under the supervision
 of Prof. [Christos
-Diou](https://www.linkedin.com/in/christos-diou/?originalSubdomain=gr),
+Diou](https://diou.github.io/),
 Prof. [Eirini
 Ntoutsi](https://www.unibw.de/home-en/appointment-of-professors/prof-eirini-ntoutsi)
 and Prof. [Theodore
