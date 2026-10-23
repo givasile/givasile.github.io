@@ -182,18 +182,21 @@ html[data-theme="dark"] .timeline-content {
   </div>
 </div>
 
-I work at [ATHENA RC](https://maps.app.goo.gl/KwFYJgyK4qkw4W976) and do my PhD at [HUA](https://dit.hua.gr/index.php/en/).
-My research is around interpretable ML systems, from explainable AI to simulation-based inference,
-supervised by
-[Christos Diou](https://diou.github.io/),
-[Theodore Dalamagas](https://scholar.google.gr/citations?user=WJOLNAYAAAAJ&hl=en)
-and
-[Eirini Ntoutsi](https://www.unibw.de/home-en/appointment-of-professors/prof-eirini-ntoutsi).
+I work at [ATHENA RC](https://maps.app.goo.gl/KwFYJgyK4qkw4W976) and do my PhD at [HUA](https://dit.hua.gr/index.php/en/) supervised by [Christos Diou](https://diou.github.io/).
+My research is on interpretable ML systems, with two main strands: eXplainable AI, which explains black-box models
+[[1]](/assets/pdf/gkolemis22_dale.pdf "DALE (ACML 2023)")[[2]](/assets/pdf/gkolemis23_rhale.pdf "RHALE (ECAI 2023)")
+or builds x-by-design models from scratch
+[[3]](/assets/pdf/gkolemis26_calm.pdf "CALM (NeurIPS 2026)"),
+and Simulation-based Inference, which fits interpretable scientific simulators to data
+[[4]](/assets/pdf/gkolemis26_r2omc.pdf "R2OMC (AISTATS 2026)").
 
-I keep an interest in probabilistic ML, especially likelihood-free inference,
-where I often work with [Michael Gutmann](https://michaelgutmann.github.io/).
+---
 
-I often collaborate on explainability research with [Giuseppe Casalicchio](https://scholar.google.com/citations?user=MHcaZMQAAAAJ&hl=de) and the whole [IML team](https://www.slds.stat.uni-muenchen.de/research/explainable-ai.html) led by [Bernd Bischl](https://scholar.google.com/citations?user=s34UckkAAAAJ&hl=de).
+On SBI, and in probabilistic ML in general, I often work with [Michael Gutmann](https://michaelgutmann.github.io/).
+
+---
+
+On XAI, I often work with [Giuseppe Casalicchio](https://scholar.google.com/citations?user=MHcaZMQAAAAJ&hl=de) and the [IML team](https://www.slds.stat.uni-muenchen.de/research/explainable-ai.html) led by [Bernd Bischl](https://scholar.google.com/citations?user=s34UckkAAAAJ&hl=de).
 
 ---
 
